@@ -3,7 +3,7 @@
 > **Hackathon**: Reforged '26 (BPIT, MLH, Unstop)  
 > **Team**: HackShift_404  
 > **Members**: Anshul Gupta (Team Leader) • Aditya Gupta • Shivam Jhingan  
-> **Primary Track**: n8n Workflow Automation (Sponsored Track)
+> *Primary Track*: n8n Workflow Automation (Sponsored Track)
 
 ---
 
