@@ -5,6 +5,42 @@
     --primary: #991b1b;
     --primary-light: #fef2f2;
     --primary-dark: #7f1d1d;
+    --page-background: #f8fafc;
+    --surface: #ffffff;
+    --surface-muted: #f1f5f9;
+    --foreground: #0f172a;
+    --foreground-muted: #475569;
+    --border: #cbd5e1;
+    --focus-ring: #b91c1c;
+  }
+
+  /* An explicit selection takes precedence over the system preference. */
+  :root[data-theme='dark'] {
+    --primary: #fca5a5;
+    --primary-light: #450a0a;
+    --primary-dark: #fecaca;
+    --page-background: #0f172a;
+    --surface: #1e293b;
+    --surface-muted: #334155;
+    --foreground: #f8fafc;
+    --foreground-muted: #cbd5e1;
+    --border: #64748b;
+    --focus-ring: #fca5a5;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']):not([data-theme='dark']) {
+      --primary: #fca5a5;
+      --primary-light: #450a0a;
+      --primary-dark: #fecaca;
+      --page-background: #0f172a;
+      --surface: #1e293b;
+      --surface-muted: #334155;
+      --foreground: #f8fafc;
+      --foreground-muted: #cbd5e1;
+      --border: #64748b;
+      --focus-ring: #fca5a5;
+    }
   }
 }
 
@@ -12,6 +48,6 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
-  background-color: #f8fafc;
-  color: #0f172a;
+  background-color: var(--page-background);
+  color: var(--foreground);
 }

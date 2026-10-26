@@ -1,4 +1,4 @@
-"""Modern dark-theme SaaS styles with blue/purple accents for ResolveAI."""
+"""Theme-aware presentation styles with blue/purple accents for ResolveAI."""
 
 import streamlit as st
 
@@ -18,12 +18,14 @@ def apply_custom_css():
             font-family: 'JetBrains Mono', monospace !important;
         }
 
-        /* App Background */
+        /* Inherit Streamlit's active theme, including its native theme switch.
+           Relative colors work without private Streamlit theme attributes. */
         .stApp {
-            background: radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.08) 0%, transparent 45%),
-                        radial-gradient(circle at 85% 85%, rgba(139, 92, 246, 0.08) 0%, transparent 45%),
-                        #0b0f19;
-            color: #f1f5f9;
+            --resolve-surface: color-mix(in srgb, currentColor 5%, transparent);
+            --resolve-border: color-mix(in srgb, currentColor 20%, transparent);
+            --resolve-muted: color-mix(in srgb, currentColor 80%, transparent);
+            background-image: radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.08) 0%, transparent 45%),
+                              radial-gradient(circle at 85% 85%, rgba(139, 92, 246, 0.08) 0%, transparent 45%);
         }
 
         /* Top Header Container */
@@ -32,9 +34,9 @@ def apply_custom_css():
             align-items: center;
             justify-content: space-between;
             padding: 1.2rem 1.8rem;
-            background: rgba(17, 24, 39, 0.7);
+            background: var(--resolve-surface);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--resolve-border);
             border-radius: 16px;
             margin-bottom: 2rem;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
@@ -53,13 +55,13 @@ def apply_custom_css():
 
         .brand-subtitle {
             font-size: 0.85rem;
-            color: #94a3b8;
+            color: var(--resolve-muted);
             font-weight: 500;
         }
 
         /* Modern Portal Cards */
         .portal-card {
-            background: linear-gradient(145deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+            background: var(--resolve-surface);
             border: 1px solid rgba(99, 102, 241, 0.2);
             border-radius: 16px;
             padding: 1.8rem;
@@ -94,13 +96,13 @@ def apply_custom_css():
         .portal-title {
             font-size: 1.3rem;
             font-weight: 700;
-            color: #f8fafc;
+            color: inherit;
             margin: 0;
         }
 
         .portal-desc {
             font-size: 0.9rem;
-            color: #94a3b8;
+            color: var(--resolve-muted);
             line-height: 1.5;
             min-height: 48px;
             margin-bottom: 1.2rem;
@@ -137,8 +139,8 @@ def apply_custom_css():
 
         /* Metric Highlights */
         .metric-card {
-            background: rgba(30, 41, 59, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: var(--resolve-surface);
+            border: 1px solid var(--resolve-border);
             border-radius: 14px;
             padding: 1.2rem;
             text-align: center;
@@ -148,9 +150,7 @@ def apply_custom_css():
         .metric-value {
             font-size: 2.2rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: inherit;
             margin: 0.2rem 0;
         }
 
@@ -158,7 +158,7 @@ def apply_custom_css():
             font-size: 0.82rem;
             text-transform: uppercase;
             letter-spacing: 0.06em;
-            color: #94a3b8;
+            color: var(--resolve-muted);
             font-weight: 600;
         }
 
