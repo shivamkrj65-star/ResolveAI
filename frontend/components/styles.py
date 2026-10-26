@@ -208,7 +208,7 @@ def apply_custom_css():
             border-radius: 10px;
             font-weight: 600;
             transition: all 0.2s ease-in-out;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--resolve-border);
         }
         div.stButton > button:first-child:hover {
             border-color: #6366f1;
@@ -219,19 +219,19 @@ def apply_custom_css():
         /* Streamlit Tabs */
         .stTabs [data-baseweb="tab-list"] {
             gap: 8px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid var(--resolve-border);
             margin-bottom: 1.5rem;
         }
 
         .stTabs [data-baseweb="tab"] {
             padding: 8px 16px;
             border-radius: 8px 8px 0 0;
-            color: #94a3b8;
+            color: var(--resolve-muted);
             font-weight: 600;
         }
 
         .stTabs [aria-selected="true"] {
-            color: #ffffff !important;
+            color: inherit !important;
             border-bottom-color: #6366f1 !important;
         }
         </style>
