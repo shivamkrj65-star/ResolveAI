@@ -204,16 +204,23 @@ def apply_custom_css():
         }
 
         /* Buttons Styling */
-        div.stButton > button:first-child {
+        div.stButton > button:first-child,
+        div.stFormSubmitButton > button:first-child {
             border-radius: 10px;
             font-weight: 600;
-            transition: all 0.2s ease-in-out;
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
             border: 1px solid var(--resolve-border);
         }
-        div.stButton > button:first-child:hover {
+        div.stButton > button:first-child:hover:not(:disabled),
+        div.stFormSubmitButton > button:first-child:hover:not(:disabled) {
             border-color: #6366f1;
             box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
-            transform: translateY(-1px);
+        }
+
+        div.stButton > button:focus-visible,
+        div.stFormSubmitButton > button:focus-visible {
+            outline: 2px solid currentColor;
+            outline-offset: 2px;
         }
 
         /* Streamlit Tabs */
