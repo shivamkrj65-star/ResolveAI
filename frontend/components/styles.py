@@ -21,6 +21,11 @@ def apply_custom_css():
         /* Inherit Streamlit's active theme, including its native theme switch.
            Relative colors work without private Streamlit theme attributes. */
         .stApp {
+            --resolve-info: color-mix(in srgb, #3b82f6 35%, currentColor);
+            --resolve-success: color-mix(in srgb, #10b981 35%, currentColor);
+            --resolve-warning: color-mix(in srgb, #f59e0b 35%, currentColor);
+            --resolve-danger: color-mix(in srgb, #ef4444 35%, currentColor);
+            --resolve-accent: color-mix(in srgb, #8b5cf6 35%, currentColor);
             --resolve-surface: color-mix(in srgb, currentColor 5%, transparent);
             --resolve-border: color-mix(in srgb, currentColor 20%, transparent);
             --resolve-muted: color-mix(in srgb, currentColor 80%, transparent);
@@ -121,19 +126,19 @@ def apply_custom_css():
 
         .badge-public {
             background: rgba(16, 185, 129, 0.15);
-            color: #34d399;
+            color: var(--resolve-success);
             border: 1px solid rgba(16, 185, 129, 0.3);
         }
 
         .badge-protected {
             background: rgba(99, 102, 241, 0.15);
-            color: #818cf8;
+            color: var(--resolve-accent);
             border: 1px solid rgba(99, 102, 241, 0.3);
         }
 
         .badge-restricted {
             background: rgba(245, 158, 11, 0.15);
-            color: #fbbf24;
+            color: var(--resolve-warning);
             border: 1px solid rgba(245, 158, 11, 0.3);
         }
 
@@ -172,17 +177,17 @@ def apply_custom_css():
             padding: 0.25rem 0.75rem;
             border-radius: 9999px;
         }
-        .status-assigned { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4); }
-        .status-held { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
-        .status-resolved { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
-        .status-rejected { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); }
-        .status-inprogress { background: rgba(139, 92, 246, 0.2); color: #c084fc; border: 1px solid rgba(139, 92, 246, 0.4); }
+        .status-assigned { background: rgba(59, 130, 246, 0.2); color: var(--resolve-info); border: 1px solid rgba(59, 130, 246, 0.4); }
+        .status-held { background: rgba(245, 158, 11, 0.2); color: var(--resolve-warning); border: 1px solid rgba(245, 158, 11, 0.4); }
+        .status-resolved { background: rgba(16, 185, 129, 0.2); color: var(--resolve-success); border: 1px solid rgba(16, 185, 129, 0.4); }
+        .status-rejected { background: rgba(239, 68, 68, 0.2); color: var(--resolve-danger); border: 1px solid rgba(239, 68, 68, 0.4); }
+        .status-inprogress { background: rgba(139, 92, 246, 0.2); color: var(--resolve-accent); border: 1px solid rgba(139, 92, 246, 0.4); }
 
         /* Priority Pills */
-        .priority-critical { background: rgba(239, 68, 68, 0.25); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.5); font-weight: 700; }
-        .priority-high { background: rgba(249, 115, 22, 0.25); color: #fdba74; border: 1px solid rgba(249, 115, 22, 0.5); }
-        .priority-medium { background: rgba(59, 130, 246, 0.25); color: #93c5fd; border: 1px solid rgba(59, 130, 246, 0.5); }
-        .priority-low { background: rgba(16, 185, 129, 0.25); color: #86efac; border: 1px solid rgba(16, 185, 129, 0.5); }
+        .priority-critical { background: rgba(239, 68, 68, 0.25); color: var(--resolve-danger); border: 1px solid rgba(239, 68, 68, 0.5); font-weight: 700; }
+        .priority-high { background: rgba(249, 115, 22, 0.25); color: var(--resolve-warning); border: 1px solid rgba(249, 115, 22, 0.5); }
+        .priority-medium { background: rgba(59, 130, 246, 0.25); color: var(--resolve-info); border: 1px solid rgba(59, 130, 246, 0.5); }
+        .priority-low { background: rgba(16, 185, 129, 0.25); color: var(--resolve-success); border: 1px solid rgba(16, 185, 129, 0.5); }
 
         /* Timeline and History */
         .timeline-item {

@@ -22,7 +22,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartDemo, onNavigat
   return (
     <div className="space-y-16 py-8">
       {/* Hero Section */}
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white p-8 md:p-14 border border-slate-800 shadow-2xl">
+      <section className="theme-inverse relative overflow-hidden rounded-3xl bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white p-8 md:p-14 border border-slate-800 shadow-2xl">
         <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-red-600/15 blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 rounded-full bg-rose-600/10 blur-3xl pointer-events-none" />
 
@@ -60,7 +60,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartDemo, onNavigat
 
           {/* Scope statement from PPT */}
           <div className="pt-2">
-            <p className="text-xs text-slate-400 italic">
+            <p className="text-xs text-[var(--foreground-muted)] italic">
               Users: Students • Maintenance Staff • Facility Admins | Scope: Campus simulation with fictional benchmark data
             </p>
           </div>
@@ -70,15 +70,15 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartDemo, onNavigat
       {/* Problem vs Solution (Slide 2) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="p-8 rounded-2xl bg-white border border-red-100 shadow-sm relative overflow-hidden">
-            <div className="w-12 h-12 rounded-xl bg-red-100 text-red-700 flex items-center justify-center mb-5">
+          <div className="p-8 rounded-2xl bg-[var(--surface)] border border-[var(--red-border)] shadow-sm relative overflow-hidden">
+            <div className="w-12 h-12 rounded-xl bg-[var(--red-surface)] text-[var(--red-foreground)] flex items-center justify-center mb-5">
               <AlertCircle className="w-6 h-6" />
             </div>
-            <h3 className="text-xl font-bold text-slate-900 mb-2">The Problem</h3>
-            <p className="text-slate-600 leading-relaxed">
+            <h3 className="text-xl font-bold text-[var(--foreground)] mb-2">The Problem</h3>
+            <p className="text-[var(--foreground-muted)] leading-relaxed">
               Campus students submit free-form text with messy descriptions (e.g. "water dripping", "pipe leaking near stairs"). These create duplicate work orders, misassigned departments, and inconsistent triage. Maintenance fixes get slow and untracked.
             </p>
-            <ul className="mt-4 space-y-2 text-sm text-slate-600">
+            <ul className="mt-4 space-y-2 text-sm text-[var(--foreground-muted)]">
               <li className="flex items-center space-x-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
                 <span>Duplicate work orders sent to same physical site</span>
@@ -94,15 +94,15 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartDemo, onNavigat
             </ul>
           </div>
 
-          <div className="p-8 rounded-2xl bg-white border border-emerald-100 shadow-sm relative overflow-hidden">
-            <div className="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-5">
+          <div className="p-8 rounded-2xl bg-[var(--surface)] border border-[var(--emerald-border)] shadow-sm relative overflow-hidden">
+            <div className="w-12 h-12 rounded-xl bg-[var(--emerald-surface)] text-[var(--emerald-foreground)] flex items-center justify-center mb-5">
               <CheckCircle className="w-6 h-6" />
             </div>
-            <h3 className="text-xl font-bold text-slate-900 mb-2">Our Solution</h3>
-            <p className="text-slate-600 leading-relaxed">
+            <h3 className="text-xl font-bold text-[var(--foreground)] mb-2">Our Solution</h3>
+            <p className="text-[var(--foreground-muted)] leading-relaxed">
               ResolveAI turns unstructured maintenance complaints into structured, schema-validated JSON, evaluates duplicate candidates using a hybrid formula, and routes verified tickets via n8n automated workflows.
             </p>
-            <ul className="mt-4 space-y-2 text-sm text-slate-600">
+            <ul className="mt-4 space-y-2 text-sm text-[var(--foreground-muted)]">
               <li className="flex items-center space-x-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                 <span>Gemma structured extraction for issue type, location & urgency</span>
@@ -123,47 +123,47 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartDemo, onNavigat
       {/* 4-Step Pipeline (Slide 2 & 3) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900">How It Works</h2>
-          <p className="text-slate-500 mt-2">End-to-end intelligent maintenance lifecycle</p>
+          <h2 className="text-2xl md:text-3xl font-bold text-[var(--foreground)]">How It Works</h2>
+          <p className="text-[var(--foreground-muted)] mt-2">End-to-end intelligent maintenance lifecycle</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-red-300 transition-all">
-            <div className="w-10 h-10 rounded-lg bg-red-50 text-red-700 font-bold flex items-center justify-center mb-4">
+          <div className="p-6 rounded-2xl bg-[var(--surface)] border border-[var(--border)] shadow-sm hover:border-[var(--red-border)] transition-all">
+            <div className="w-10 h-10 rounded-lg bg-[var(--red-surface)] text-[var(--red-foreground)] font-bold flex items-center justify-center mb-4">
               1
             </div>
-            <h4 className="text-lg font-bold text-slate-900 mb-1">Submit</h4>
-            <p className="text-sm text-slate-600">
+            <h4 className="text-lg font-bold text-[var(--foreground)] mb-1">Submit</h4>
+            <p className="text-sm text-[var(--foreground-muted)]">
               Student files a natural text complaint via the portal without needing complex dropdowns.
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-red-300 transition-all">
-            <div className="w-10 h-10 rounded-lg bg-red-50 text-red-700 font-bold flex items-center justify-center mb-4">
+          <div className="p-6 rounded-2xl bg-[var(--surface)] border border-[var(--border)] shadow-sm hover:border-[var(--red-border)] transition-all">
+            <div className="w-10 h-10 rounded-lg bg-[var(--red-surface)] text-[var(--red-foreground)] font-bold flex items-center justify-center mb-4">
               2
             </div>
-            <h4 className="text-lg font-bold text-slate-900 mb-1">Understand</h4>
-            <p className="text-sm text-slate-600">
+            <h4 className="text-lg font-bold text-[var(--foreground)] mb-1">Understand</h4>
+            <p className="text-sm text-[var(--foreground-muted)]">
               Gemma model extracts schema-validated JSON: category, building block, floor/room, and urgency score.
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-red-300 transition-all">
-            <div className="w-10 h-10 rounded-lg bg-red-50 text-red-700 font-bold flex items-center justify-center mb-4">
+          <div className="p-6 rounded-2xl bg-[var(--surface)] border border-[var(--border)] shadow-sm hover:border-[var(--red-border)] transition-all">
+            <div className="w-10 h-10 rounded-lg bg-[var(--red-surface)] text-[var(--red-foreground)] font-bold flex items-center justify-center mb-4">
               3
             </div>
-            <h4 className="text-lg font-bold text-slate-900 mb-1">Compare</h4>
-            <p className="text-sm text-slate-600">
+            <h4 className="text-lg font-bold text-[var(--foreground)] mb-1">Compare</h4>
+            <p className="text-sm text-[var(--foreground-muted)]">
               Hybrid check flags duplicate candidates combining embeddings, physical proximity, and time window rules.
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-red-300 transition-all">
-            <div className="w-10 h-10 rounded-lg bg-red-50 text-red-700 font-bold flex items-center justify-center mb-4">
+          <div className="p-6 rounded-2xl bg-[var(--surface)] border border-[var(--border)] shadow-sm hover:border-[var(--red-border)] transition-all">
+            <div className="w-10 h-10 rounded-lg bg-[var(--red-surface)] text-[var(--red-foreground)] font-bold flex items-center justify-center mb-4">
               4
             </div>
-            <h4 className="text-lg font-bold text-slate-900 mb-1">Route</h4>
-            <p className="text-sm text-slate-600">
+            <h4 className="text-lg font-bold text-[var(--foreground)] mb-1">Route</h4>
+            <p className="text-sm text-[var(--foreground-muted)]">
               n8n workflow assigns tickets directly or branches to the human approval queue if flagged as duplicate.
             </p>
           </div>
@@ -172,7 +172,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartDemo, onNavigat
 
       {/* Unique Selling Propositions (Slide 5) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="p-8 md:p-12 rounded-3xl bg-slate-900 text-white border border-slate-800">
+        <div className="theme-inverse p-8 md:p-12 rounded-3xl bg-slate-900 text-white border border-slate-800">
           <div className="max-w-3xl mb-8">
             <span className="text-red-400 font-semibold text-xs tracking-wider uppercase">Why ResolveAI Wins</span>
             <h2 className="text-3xl font-bold mt-2">Core Technical USPs & Safeguards</h2>
@@ -223,17 +223,17 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartDemo, onNavigat
       </section>
 
       {/* Team & Track Footer (Slide 1) */}
-      <footer className="border-t border-slate-200 pt-8 pb-12 max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
+      <footer className="border-t border-[var(--border)] pt-8 pb-12 max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[var(--foreground-muted)]">
           <div>
-            <p className="font-semibold text-slate-800">ResolveAI • HackShift_404</p>
+            <p className="font-semibold text-[var(--foreground)]">ResolveAI • HackShift_404</p>
             <p>Anshul Gupta (Team Leader) • Aditya Gupta • Shivam Jhingan</p>
           </div>
           <div className="flex items-center space-x-4">
-            <span className="px-3 py-1 rounded-full bg-slate-100 font-medium text-slate-700 border border-slate-200">
+            <span className="px-3 py-1 rounded-full bg-[var(--surface-muted)] font-medium text-[var(--foreground)] border border-[var(--border)]">
               Track: n8n (Primary Sponsored Track)
             </span>
-            <span className="text-xs text-slate-400">Reforged '26 • BPIT</span>
+            <span className="text-xs text-[var(--foreground-muted)]">Reforged '26 • BPIT</span>
           </div>
         </div>
       </footer>

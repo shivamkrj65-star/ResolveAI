@@ -58,7 +58,7 @@ def render_priority_badge(priority: str) -> str:
 def build_status_chart(cases: List[Dict[str, Any]]) -> go.Figure:
     if not cases:
         fig = go.Figure()
-        fig.update_layout(title="No Cases Available", template="plotly_dark")
+        fig.update_layout(title="No Cases Available")
         return fig
 
     status_counts = {}
@@ -85,7 +85,6 @@ def build_status_chart(cases: List[Dict[str, Any]]) -> go.Figure:
         title="Complaints by Resolution Status",
     )
     fig.update_layout(
-        template="plotly_dark",
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
         margin=dict(l=20, r=20, t=40, b=20),
@@ -97,7 +96,7 @@ def build_status_chart(cases: List[Dict[str, Any]]) -> go.Figure:
 def build_priority_chart(cases: List[Dict[str, Any]]) -> go.Figure:
     if not cases:
         fig = go.Figure()
-        fig.update_layout(title="No Cases Available", template="plotly_dark")
+        fig.update_layout(title="No Cases Available")
         return fig
 
     priority_counts = {"Critical": 0, "High": 0, "Medium": 0, "Low": 0}
@@ -117,7 +116,6 @@ def build_priority_chart(cases: List[Dict[str, Any]]) -> go.Figure:
         title="Authoritative Priority Breakdown",
     )
     fig.update_layout(
-        template="plotly_dark",
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
         margin=dict(l=20, r=20, t=40, b=20),
@@ -129,7 +127,7 @@ def build_priority_chart(cases: List[Dict[str, Any]]) -> go.Figure:
 def build_category_chart(cases: List[Dict[str, Any]]) -> go.Figure:
     if not cases:
         fig = go.Figure()
-        fig.update_layout(title="No Cases Available", template="plotly_dark")
+        fig.update_layout(title="No Cases Available")
         return fig
 
     category_counts = {}
@@ -150,7 +148,6 @@ def build_category_chart(cases: List[Dict[str, Any]]) -> go.Figure:
         title="Complaints by Issue Category",
     )
     fig.update_layout(
-        template="plotly_dark",
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
         margin=dict(l=20, r=20, t=40, b=20),
@@ -162,7 +159,7 @@ def build_category_chart(cases: List[Dict[str, Any]]) -> go.Figure:
 def build_location_chart(cases: List[Dict[str, Any]]) -> go.Figure:
     if not cases:
         fig = go.Figure()
-        fig.update_layout(title="No Cases Available", template="plotly_dark")
+        fig.update_layout(title="No Cases Available")
         return fig
 
     loc_counts = {}
@@ -182,7 +179,6 @@ def build_location_chart(cases: List[Dict[str, Any]]) -> go.Figure:
         title="Top Reported Campus Locations",
     )
     fig.update_layout(
-        template="plotly_dark",
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
         margin=dict(l=20, r=20, t=40, b=20),

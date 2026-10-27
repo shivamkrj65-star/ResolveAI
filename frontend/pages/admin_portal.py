@@ -46,7 +46,7 @@ def render_admin_portal(client: ResolveAIClient):
     col_u1, col_u2 = st.columns([3, 1])
     with col_u1:
         st.markdown(
-            f"### 🛡️ Admin Triage Dashboard — <span style='color: #818cf8;'>{user.get('display_name', 'Administrator')}</span>",
+            f"### 🛡️ Admin Triage Dashboard — <span style='color: var(--resolve-accent);'>{user.get('display_name', 'Administrator')}</span>",
             unsafe_allow_html=True,
         )
         st.caption(f"Role: `admin` | Username: `{user.get('username')}` | Server-Enforced RBAC Active")
@@ -79,13 +79,13 @@ def render_admin_portal(client: ResolveAIClient):
     with m1:
         st.markdown(f"""<div class="metric-card"><div class="metric-label">Total Cases</div><div class="metric-value">{total_cases}</div></div>""", unsafe_allow_html=True)
     with m2:
-        st.markdown(f"""<div class="metric-card"><div class="metric-label">Pending Review</div><div class="metric-value" style="color: #fbbf24;">{pending_cases}</div></div>""", unsafe_allow_html=True)
+        st.markdown(f"""<div class="metric-card"><div class="metric-label">Pending Review</div><div class="metric-value" style="color: var(--resolve-warning);">{pending_cases}</div></div>""", unsafe_allow_html=True)
     with m3:
-        st.markdown(f"""<div class="metric-card"><div class="metric-label">In Resolution</div><div class="metric-value" style="color: #60a5fa;">{in_progress}</div></div>""", unsafe_allow_html=True)
+        st.markdown(f"""<div class="metric-card"><div class="metric-label">In Resolution</div><div class="metric-value" style="color: var(--resolve-info);">{in_progress}</div></div>""", unsafe_allow_html=True)
     with m4:
-        st.markdown(f"""<div class="metric-card"><div class="metric-label">Resolved</div><div class="metric-value" style="color: #34d399;">{resolved_cases}</div></div>""", unsafe_allow_html=True)
+        st.markdown(f"""<div class="metric-card"><div class="metric-label">Resolved</div><div class="metric-value" style="color: var(--resolve-success);">{resolved_cases}</div></div>""", unsafe_allow_html=True)
     with m5:
-        st.markdown(f"""<div class="metric-card"><div class="metric-label">Critical Priority</div><div class="metric-value" style="color: #f87171;">{critical_cases}</div></div>""", unsafe_allow_html=True)
+        st.markdown(f"""<div class="metric-card"><div class="metric-label">Critical Priority</div><div class="metric-value" style="color: var(--resolve-danger);">{critical_cases}</div></div>""", unsafe_allow_html=True)
 
     st.markdown("---")
 
@@ -316,15 +316,15 @@ def _render_admin_login(client: ResolveAIClient):
         st.markdown(
             """<div class="portal-card">
                 <div class="portal-badge badge-protected">Demo Access</div>
-                <h4 style="color: #fff; margin: 0 0 0.5rem 0;">Demo Credentials</h4>
-                <p style="color: #94a3b8; font-size: 0.85rem;">
+                <h4 style="color: inherit; margin: 0 0 0.5rem 0;">Demo Credentials</h4>
+                <p style="color: var(--resolve-muted); font-size: 0.85rem;">
                     Credentials configured in <code>backend/.env</code>:
                 </p>
-                <div style="background: rgba(0,0,0,0.3); padding: 0.8rem; border-radius: 8px; font-family: monospace; font-size: 0.85rem;">
+                <div style="background: var(--resolve-surface); padding: 0.8rem; border-radius: 8px; font-family: monospace; font-size: 0.85rem;">
                     ID: <b>admin_resolve</b><br/>
                     Password: <b>MapleFox47</b>
                 </div>
-                <p style="color: #64748b; font-size: 0.75rem; margin-top: 0.8rem;">
+                <p style="color: var(--resolve-muted); font-size: 0.75rem; margin-top: 0.8rem;">
                     Sessions use signed HTTP-only cookies and cryptographic bearer tokens validated on every backend route.
                 </p>
             </div>""",

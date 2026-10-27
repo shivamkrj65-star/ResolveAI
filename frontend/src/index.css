@@ -12,6 +12,24 @@
     --foreground-muted: #475569;
     --border: #cbd5e1;
     --focus-ring: #b91c1c;
+    --red-surface: color-mix(in srgb, #b91c1c 10%, var(--surface));
+    --red-border: color-mix(in srgb, #b91c1c 35%, var(--surface));
+    --red-foreground: #b91c1c;
+    --amber-surface: color-mix(in srgb, #b45309 10%, var(--surface));
+    --amber-border: color-mix(in srgb, #b45309 35%, var(--surface));
+    --amber-foreground: #b45309;
+    --emerald-surface: color-mix(in srgb, #047857 10%, var(--surface));
+    --emerald-border: color-mix(in srgb, #047857 35%, var(--surface));
+    --emerald-foreground: #047857;
+    --blue-surface: color-mix(in srgb, #1d4ed8 10%, var(--surface));
+    --blue-border: color-mix(in srgb, #1d4ed8 35%, var(--surface));
+    --blue-foreground: #1d4ed8;
+    --orange-surface: color-mix(in srgb, #c2410c 10%, var(--surface));
+    --orange-border: color-mix(in srgb, #c2410c 35%, var(--surface));
+    --orange-foreground: #c2410c;
+    --indigo-surface: color-mix(in srgb, #4338ca 10%, var(--surface));
+    --indigo-border: color-mix(in srgb, #4338ca 35%, var(--surface));
+    --indigo-foreground: #4338ca;
   }
 
   /* An explicit selection takes precedence over the system preference. */
@@ -26,6 +44,12 @@
     --foreground-muted: #cbd5e1;
     --border: #64748b;
     --focus-ring: #fca5a5;
+    --red-foreground: #fca5a5;
+    --amber-foreground: #fcd34d;
+    --emerald-foreground: #6ee7b7;
+    --blue-foreground: #93c5fd;
+    --orange-foreground: #fdba74;
+    --indigo-foreground: #a5b4fc;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -40,6 +64,12 @@
       --foreground-muted: #cbd5e1;
       --border: #64748b;
       --focus-ring: #fca5a5;
+      --red-foreground: #fca5a5;
+      --amber-foreground: #fcd34d;
+      --emerald-foreground: #6ee7b7;
+      --blue-foreground: #93c5fd;
+      --orange-foreground: #fdba74;
+      --indigo-foreground: #a5b4fc;
     }
   }
 }
@@ -65,4 +95,23 @@ body {
 .login-panel :is(button, input):focus-visible {
   outline: 2px solid var(--focus-ring);
   outline-offset: 2px;
+}
+
+/* Promotional heroes and technical diagrams deliberately retain dark surfaces. */
+.theme-inverse {
+  --foreground: #f8fafc;
+  --foreground-muted: #cbd5e1;
+  --surface: #1e293b;
+  --surface-muted: #334155;
+  --border: #64748b;
+}
+
+.app-shell :is(input:not([type='checkbox']):not([type='radio']):not([type='file']), textarea, select) {
+  background-color: var(--surface);
+  color: var(--foreground);
+}
+
+.app-shell :is(input, textarea)::placeholder {
+  color: var(--foreground-muted);
+  opacity: 1;
 }

@@ -60,7 +60,7 @@ def render_user_portal(client: ResolveAIClient):
                 st.markdown(
                     f"""<div class="metric-card">
                         <div class="metric-label">In Resolution</div>
-                        <div class="metric-value" style="color: #60a5fa;">{stats.get('in_progress_or_assigned', 0)}</div>
+                        <div class="metric-value" style="color: var(--resolve-info);">{stats.get('in_progress_or_assigned', 0)}</div>
                     </div>""",
                     unsafe_allow_html=True,
                 )
@@ -68,7 +68,7 @@ def render_user_portal(client: ResolveAIClient):
                 st.markdown(
                     f"""<div class="metric-card">
                         <div class="metric-label">Resolved</div>
-                        <div class="metric-value" style="color: #34d399;">{stats.get('resolved', 0)}</div>
+                        <div class="metric-value" style="color: var(--resolve-success);">{stats.get('resolved', 0)}</div>
                     </div>""",
                     unsafe_allow_html=True,
                 )
@@ -76,7 +76,7 @@ def render_user_portal(client: ResolveAIClient):
                 st.markdown(
                     f"""<div class="metric-card">
                         <div class="metric-label">Duplicates Caught</div>
-                        <div class="metric-value" style="color: #fbbf24;">{stats.get('duplicates_detected', 0)}</div>
+                        <div class="metric-value" style="color: var(--resolve-warning);">{stats.get('duplicates_detected', 0)}</div>
                     </div>""",
                     unsafe_allow_html=True,
                 )
@@ -95,8 +95,8 @@ def render_user_portal(client: ResolveAIClient):
             st.markdown(
                 """<div class="portal-card">
                     <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📸</div>
-                    <h4 style="margin: 0; color: #fff;">1. Upload Evidence</h4>
-                    <p style="color: #94a3b8; font-size: 0.85rem; margin-top: 0.4rem;">
+                    <h4 style="margin: 0; color: inherit;">1. Upload Evidence</h4>
+                    <p style="color: var(--resolve-muted); font-size: 0.85rem; margin-top: 0.4rem;">
                         Attach photos of the issue. OpenCV checks blur and extracts visual features.
                     </p>
                 </div>""",
@@ -106,8 +106,8 @@ def render_user_portal(client: ResolveAIClient):
             st.markdown(
                 """<div class="portal-card">
                     <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🧠</div>
-                    <h4 style="margin: 0; color: #fff;">2. Gemma Extraction</h4>
-                    <p style="color: #94a3b8; font-size: 0.85rem; margin-top: 0.4rem;">
+                    <h4 style="margin: 0; color: inherit;">2. Gemma Extraction</h4>
+                    <p style="color: var(--resolve-muted); font-size: 0.85rem; margin-top: 0.4rem;">
                         Our fine-tuned Gemma model determines urgency, location, and hazard level.
                     </p>
                 </div>""",
@@ -117,8 +117,8 @@ def render_user_portal(client: ResolveAIClient):
             st.markdown(
                 """<div class="portal-card">
                     <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">⚡</div>
-                    <h4 style="margin: 0; color: #fff;">3. n8n Fast Dispatch</h4>
-                    <p style="color: #94a3b8; font-size: 0.85rem; margin-top: 0.4rem;">
+                    <h4 style="margin: 0; color: inherit;">3. n8n Fast Dispatch</h4>
+                    <p style="color: var(--resolve-muted); font-size: 0.85rem; margin-top: 0.4rem;">
                         Tickets are routed automatically to the right facility response teams.
                     </p>
                 </div>""",
@@ -319,8 +319,8 @@ def render_user_portal(client: ResolveAIClient):
                             ev = entry.get("event", "")
                             st.markdown(
                                 f"""<div class="timeline-item">
-                                    <div style="font-size: 0.75rem; color: #94a3b8;">{ts}</div>
-                                    <div style="font-weight: 500; color: #f1f5f9; margin-top: 2px;">{ev}</div>
+                                    <div style="font-size: 0.75rem; color: var(--resolve-muted);">{ts}</div>
+                                    <div style="font-weight: 500; color: inherit; margin-top: 2px;">{ev}</div>
                                 </div>""",
                                 unsafe_allow_html=True,
                             )

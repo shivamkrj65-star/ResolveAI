@@ -54,7 +54,7 @@ def render_navbar(client: ResolveAIClient):
                 <span style="font-size: 2rem;">⚡</span>
                 <div>
                     <span style="font-size: 1.4rem; font-weight: 800; background: linear-gradient(135deg, #a5b4fc, #6366f1, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">ResolveAI</span><br/>
-                    <span style="font-size: 0.75rem; color: #94a3b8; font-weight: 500;">AI-Powered Campus Resolution System</span>
+                    <span style="font-size: 0.75rem; color: var(--resolve-muted); font-weight: 500;">AI-Powered Campus Resolution System</span>
                 </div>
             </div>""",
             unsafe_allow_html=True,
@@ -80,7 +80,7 @@ def render_navbar(client: ResolveAIClient):
                 st.session_state.active_portal = "home"
                 st.rerun()
 
-    st.markdown("<hr style='border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 0.8rem 0 1.5rem 0;'>", unsafe_allow_html=True)
+    st.markdown("<hr style='border: 0; border-top: 1px solid var(--resolve-border); margin: 0.8rem 0 1.5rem 0;'>", unsafe_allow_html=True)
 
 
 def render_landing_page(client: ResolveAIClient):
@@ -92,7 +92,7 @@ def render_landing_page(client: ResolveAIClient):
                     Automated & Dispatched in Seconds.
                 </span>
             </h1>
-            <p style="color: #94a3b8; font-size: 1.1rem; line-height: 1.6;">
+            <p style="color: var(--resolve-muted); font-size: 1.1rem; line-height: 1.6;">
                 ResolveAI eliminates campus maintenance backlogs by pairing Gemma AI classification with OpenCV visual evidence verification, Cloudinary cloud storage, and n8n facility workflows.
             </p>
         </div>""",
@@ -164,37 +164,37 @@ def render_landing_page(client: ResolveAIClient):
     c_arch1, c_arch2, c_arch3, c_arch4 = st.columns(4)
     with c_arch1:
         st.markdown(
-            """<div style="background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 1rem; text-align: center;">
+            """<div style="background: var(--resolve-surface); border: 1px solid var(--resolve-border); border-radius: 12px; padding: 1rem; text-align: center;">
                 <div style="font-size: 1.6rem;">👁️</div>
-                <div style="font-weight: 700; color: #f1f5f9; margin-top: 0.3rem;">OpenCV Vision</div>
-                <div style="font-size: 0.78rem; color: #94a3b8; margin-top: 0.2rem;">Blur scoring & perceptual hashing</div>
+                <div style="font-weight: 700; color: inherit; margin-top: 0.3rem;">OpenCV Vision</div>
+                <div style="font-size: 0.78rem; color: var(--resolve-muted); margin-top: 0.2rem;">Blur scoring & perceptual hashing</div>
             </div>""",
             unsafe_allow_html=True,
         )
     with c_arch2:
         st.markdown(
-            """<div style="background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 1rem; text-align: center;">
+            """<div style="background: var(--resolve-surface); border: 1px solid var(--resolve-border); border-radius: 12px; padding: 1rem; text-align: center;">
                 <div style="font-size: 1.6rem;">☁️</div>
-                <div style="font-weight: 700; color: #f1f5f9; margin-top: 0.3rem;">Cloudinary CDN</div>
-                <div style="font-size: 0.78rem; color: #94a3b8; margin-top: 0.2rem;">Secure evidence photo storage</div>
+                <div style="font-weight: 700; color: inherit; margin-top: 0.3rem;">Cloudinary CDN</div>
+                <div style="font-size: 0.78rem; color: var(--resolve-muted); margin-top: 0.2rem;">Secure evidence photo storage</div>
             </div>""",
             unsafe_allow_html=True,
         )
     with c_arch3:
         st.markdown(
-            """<div style="background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 1rem; text-align: center;">
+            """<div style="background: var(--resolve-surface); border: 1px solid var(--resolve-border); border-radius: 12px; padding: 1rem; text-align: center;">
                 <div style="font-size: 1.6rem;">🤖</div>
-                <div style="font-weight: 700; color: #f1f5f9; margin-top: 0.3rem;">Gemma 2B AI</div>
-                <div style="font-size: 0.78rem; color: #94a3b8; margin-top: 0.2rem;">Entity extraction & priority estimation</div>
+                <div style="font-weight: 700; color: inherit; margin-top: 0.3rem;">Gemma 2B AI</div>
+                <div style="font-size: 0.78rem; color: var(--resolve-muted); margin-top: 0.2rem;">Entity extraction & priority estimation</div>
             </div>""",
             unsafe_allow_html=True,
         )
     with c_arch4:
         st.markdown(
-            """<div style="background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 1rem; text-align: center;">
+            """<div style="background: var(--resolve-surface); border: 1px solid var(--resolve-border); border-radius: 12px; padding: 1rem; text-align: center;">
                 <div style="font-size: 1.6rem;">📓</div>
-                <div style="font-weight: 700; color: #f1f5f9; margin-top: 0.3rem;">Notion Sync</div>
-                <div style="font-size: 0.78rem; color: #94a3b8; margin-top: 0.2rem;">Automated workspace docs update</div>
+                <div style="font-weight: 700; color: inherit; margin-top: 0.3rem;">Notion Sync</div>
+                <div style="font-size: 0.78rem; color: var(--resolve-muted); margin-top: 0.2rem;">Automated workspace docs update</div>
             </div>""",
             unsafe_allow_html=True,
         )

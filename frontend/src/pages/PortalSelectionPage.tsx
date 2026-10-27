@@ -34,7 +34,7 @@ export const PortalSelectionPage: React.FC<PortalSelectionPageProps> = ({
   return (
     <div className="space-y-16 py-6 max-w-7xl mx-auto">
       {/* Hero Section */}
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white p-8 md:p-14 border border-slate-800 shadow-2xl">
+      <section className="theme-inverse relative overflow-hidden rounded-3xl bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white p-8 md:p-14 border border-slate-800 shadow-2xl">
         <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-red-600/15 blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 rounded-full bg-rose-600/10 blur-3xl pointer-events-none" />
 
@@ -52,7 +52,7 @@ export const PortalSelectionPage: React.FC<PortalSelectionPageProps> = ({
             Intelligent campus maintenance resolution with Gemma NLP, OpenCV image analysis, Cloudinary evidence delivery, n8n automated routing, and Notion workspace synchronization.
           </p>
 
-          <p className="text-xs text-slate-400 italic">
+          <p className="text-xs text-[var(--foreground-muted)] italic">
             Select a specialized portal below to explore the student experience, facility admin triage, or testing & evaluation engine.
           </p>
         </div>
@@ -61,20 +61,20 @@ export const PortalSelectionPage: React.FC<PortalSelectionPageProps> = ({
       {/* Three Portals Selection Cards */}
       <section className="space-y-4">
         <div className="text-center space-y-1">
-          <span className="text-xs font-bold uppercase tracking-wider text-red-700">Three-Portals Architecture</span>
-          <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900">Choose Your Operational Portal</h2>
-          <p className="text-xs text-slate-500">Tailored views for campus reporters, facility supervisors, and QA evaluators</p>
+          <span className="text-xs font-bold uppercase tracking-wider text-[var(--red-foreground)]">Three-Portals Architecture</span>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-[var(--foreground)]">Choose Your Operational Portal</h2>
+          <p className="text-xs text-[var(--foreground-muted)]">Tailored views for campus reporters, facility supervisors, and QA evaluators</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
           {/* USER PORTAL */}
-          <div className="rounded-3xl bg-white border-2 border-slate-200 hover:border-red-400 shadow-lg hover:shadow-xl p-7 flex flex-col justify-between transition-all transform hover:-translate-y-1 group relative overflow-hidden">
+          <div className="rounded-3xl bg-[var(--surface)] border-2 border-[var(--border)] hover:border-red-400 shadow-lg hover:shadow-xl p-7 flex flex-col justify-between transition-all transform hover:-translate-y-1 group relative overflow-hidden">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
+                <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-[var(--emerald-surface)] text-[var(--emerald-foreground)] border border-[var(--emerald-border)]">
                   Public Access · No Login
                 </span>
-                <span className="text-xs font-semibold text-slate-400">Students & Staff</span>
+                <span className="text-xs font-semibold text-[var(--foreground-muted)]">Students & Staff</span>
               </div>
 
               <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-red-600 to-rose-500 text-white flex items-center justify-center shadow-md shadow-red-500/20 group-hover:scale-105 transition-transform">
@@ -82,15 +82,15 @@ export const PortalSelectionPage: React.FC<PortalSelectionPageProps> = ({
               </div>
 
               <div>
-                <h3 className="text-xl font-black text-slate-900 group-hover:text-red-700 transition-colors">
+                <h3 className="text-xl font-black text-[var(--foreground)] group-hover:text-[var(--red-foreground)] transition-colors">
                   User Portal
                 </h3>
-                <p className="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                <p className="text-xs text-[var(--foreground-muted)] mt-1.5 leading-relaxed">
                   Submit maintenance issues with OpenCV visual validation, Cloudinary photo uploads, and track your complaints live.
                 </p>
               </div>
 
-              <ul className="space-y-2 text-xs text-slate-600 pt-2 border-t border-slate-100">
+              <ul className="space-y-2 text-xs text-[var(--foreground-muted)] pt-2 border-t border-[var(--border)]">
                 <li className="flex items-center space-x-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-red-600" />
                   <span>Free-form issue submission without rigid dropdowns</span>
@@ -122,14 +122,14 @@ export const PortalSelectionPage: React.FC<PortalSelectionPageProps> = ({
           </div>
 
           {/* ADMIN PORTAL */}
-          <div className="rounded-3xl bg-white border-2 border-slate-200 hover:border-slate-800 shadow-lg hover:shadow-xl p-7 flex flex-col justify-between transition-all transform hover:-translate-y-1 group relative overflow-hidden">
+          <div className="rounded-3xl bg-[var(--surface)] border-2 border-[var(--border)] hover:border-slate-800 shadow-lg hover:shadow-xl p-7 flex flex-col justify-between transition-all transform hover:-translate-y-1 group relative overflow-hidden">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-slate-900 text-white flex items-center space-x-1">
                   <Lock className="w-3 h-3 text-red-400" />
                   <span>Protected · Admin Role</span>
                 </span>
-                <span className="text-xs font-semibold text-slate-400">Facility Supervisors</span>
+                <span className="text-xs font-semibold text-[var(--foreground-muted)]">Facility Supervisors</span>
               </div>
 
               <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-slate-900 to-slate-800 text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
@@ -137,15 +137,15 @@ export const PortalSelectionPage: React.FC<PortalSelectionPageProps> = ({
               </div>
 
               <div>
-                <h3 className="text-xl font-black text-slate-900 group-hover:text-red-700 transition-colors">
+                <h3 className="text-xl font-black text-[var(--foreground)] group-hover:text-[var(--red-foreground)] transition-colors">
                   Admin Portal
                 </h3>
-                <p className="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                <p className="text-xs text-[var(--foreground-muted)] mt-1.5 leading-relaxed">
                   Authoritative triage queue, duplicate review & merge, priority overrides, and immutable audit timeline.
                 </p>
               </div>
 
-              <ul className="space-y-2 text-xs text-slate-600 pt-2 border-t border-slate-100">
+              <ul className="space-y-2 text-xs text-[var(--foreground-muted)] pt-2 border-t border-[var(--border)]">
                 <li className="flex items-center space-x-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-slate-900" />
                   <span>Live ticket queue with search, category & location filters</span>
@@ -164,10 +164,10 @@ export const PortalSelectionPage: React.FC<PortalSelectionPageProps> = ({
                 </li>
               </ul>
 
-              <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-[11px] font-mono text-slate-600 space-y-0.5">
-                <span className="text-[10px] uppercase font-bold text-slate-400 block font-sans">Demo Credentials:</span>
-                <div>User: <span className="font-bold text-slate-800">admin_resolve</span></div>
-                <div>Pass: <span className="font-bold text-slate-800">MapleFox47</span></div>
+              <div className="p-2.5 rounded-xl bg-[var(--surface-muted)] border border-[var(--border)] text-[11px] font-mono text-[var(--foreground-muted)] space-y-0.5">
+                <span className="text-[10px] uppercase font-bold text-[var(--foreground-muted)] block font-sans">Demo Credentials:</span>
+                <div>User: <span className="font-bold text-[var(--foreground)]">admin_resolve</span></div>
+                <div>Pass: <span className="font-bold text-[var(--foreground)]">MapleFox47</span></div>
               </div>
             </div>
 
@@ -183,14 +183,14 @@ export const PortalSelectionPage: React.FC<PortalSelectionPageProps> = ({
           </div>
 
           {/* TESTING PORTAL */}
-          <div className="rounded-3xl bg-white border-2 border-slate-200 hover:border-slate-800 shadow-lg hover:shadow-xl p-7 flex flex-col justify-between transition-all transform hover:-translate-y-1 group relative overflow-hidden">
+          <div className="rounded-3xl bg-[var(--surface)] border-2 border-[var(--border)] hover:border-slate-800 shadow-lg hover:shadow-xl p-7 flex flex-col justify-between transition-all transform hover:-translate-y-1 group relative overflow-hidden">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-slate-900 text-white flex items-center space-x-1">
                   <Lock className="w-3 h-3 text-red-400" />
                   <span>Protected · Tester Role</span>
                 </span>
-                <span className="text-xs font-semibold text-slate-400">QA & Hackathon Evaluators</span>
+                <span className="text-xs font-semibold text-[var(--foreground-muted)]">QA & Hackathon Evaluators</span>
               </div>
 
               <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-slate-900 to-slate-800 text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
@@ -198,15 +198,15 @@ export const PortalSelectionPage: React.FC<PortalSelectionPageProps> = ({
               </div>
 
               <div>
-                <h3 className="text-xl font-black text-slate-900 group-hover:text-red-700 transition-colors">
+                <h3 className="text-xl font-black text-[var(--foreground)] group-hover:text-[var(--red-foreground)] transition-colors">
                   Testing Portal
                 </h3>
-                <p className="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                <p className="text-xs text-[var(--foreground-muted)] mt-1.5 leading-relaxed">
                   n8n workflow graphs, webhook payloads, live execution runs, benchmark ablation studies, and Notion sync.
                 </p>
               </div>
 
-              <ul className="space-y-2 text-xs text-slate-600 pt-2 border-t border-slate-100">
+              <ul className="space-y-2 text-xs text-[var(--foreground-muted)] pt-2 border-t border-[var(--border)]">
                 <li className="flex items-center space-x-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-slate-900" />
                   <span>n8n workflow graphs & webhook idempotency logs</span>
@@ -225,10 +225,10 @@ export const PortalSelectionPage: React.FC<PortalSelectionPageProps> = ({
                 </li>
               </ul>
 
-              <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-[11px] font-mono text-slate-600 space-y-0.5">
-                <span className="text-[10px] uppercase font-bold text-slate-400 block font-sans">Demo Credentials:</span>
-                <div>User: <span className="font-bold text-slate-800">tester_resolve</span></div>
-                <div>Pass: <span className="font-bold text-slate-800">OrbitPanda82</span></div>
+              <div className="p-2.5 rounded-xl bg-[var(--surface-muted)] border border-[var(--border)] text-[11px] font-mono text-[var(--foreground-muted)] space-y-0.5">
+                <span className="text-[10px] uppercase font-bold text-[var(--foreground-muted)] block font-sans">Demo Credentials:</span>
+                <div>User: <span className="font-bold text-[var(--foreground)]">tester_resolve</span></div>
+                <div>Pass: <span className="font-bold text-[var(--foreground)]">OrbitPanda82</span></div>
               </div>
             </div>
 
@@ -246,13 +246,13 @@ export const PortalSelectionPage: React.FC<PortalSelectionPageProps> = ({
       </section>
 
       {/* Quick Interactive Demo Trigger Cards */}
-      <section className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
+      <section className="p-6 rounded-2xl bg-[var(--surface)] border border-[var(--border)] shadow-sm space-y-3">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+            <span className="text-xs font-bold uppercase tracking-wider text-[var(--foreground-muted)]">
               Interactive Hackathon Demo Scenarios
             </span>
-            <p className="text-xs text-slate-500">Populate and run Slide 4 test cases in the User Portal with 1 click</p>
+            <p className="text-xs text-[var(--foreground-muted)]">Populate and run Slide 4 test cases in the User Portal with 1 click</p>
           </div>
           <div className="flex items-center gap-3">
             <button
@@ -275,15 +275,15 @@ export const PortalSelectionPage: React.FC<PortalSelectionPageProps> = ({
 
       {/* Problem vs Solution */}
       <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="p-8 rounded-2xl bg-white border border-red-100 shadow-sm relative overflow-hidden">
-          <div className="w-12 h-12 rounded-xl bg-red-100 text-red-700 flex items-center justify-center mb-5">
+        <div className="p-8 rounded-2xl bg-[var(--surface)] border border-[var(--red-border)] shadow-sm relative overflow-hidden">
+          <div className="w-12 h-12 rounded-xl bg-[var(--red-surface)] text-[var(--red-foreground)] flex items-center justify-center mb-5">
             <AlertCircle className="w-6 h-6" />
           </div>
-          <h3 className="text-xl font-bold text-slate-900 mb-2">The Problem</h3>
-          <p className="text-slate-600 leading-relaxed text-sm">
+          <h3 className="text-xl font-bold text-[var(--foreground)] mb-2">The Problem</h3>
+          <p className="text-[var(--foreground-muted)] leading-relaxed text-sm">
             Campus students submit free-form text with messy descriptions (e.g. "water dripping", "pipe leaking near stairs"). These create duplicate work orders, misassigned departments, and inconsistent triage. Maintenance fixes get slow and untracked.
           </p>
-          <ul className="mt-4 space-y-2 text-xs text-slate-600">
+          <ul className="mt-4 space-y-2 text-xs text-[var(--foreground-muted)]">
             <li className="flex items-center space-x-2">
               <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
               <span>Duplicate work orders sent to same physical site</span>
@@ -299,15 +299,15 @@ export const PortalSelectionPage: React.FC<PortalSelectionPageProps> = ({
           </ul>
         </div>
 
-        <div className="p-8 rounded-2xl bg-white border border-emerald-100 shadow-sm relative overflow-hidden">
-          <div className="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-5">
+        <div className="p-8 rounded-2xl bg-[var(--surface)] border border-[var(--emerald-border)] shadow-sm relative overflow-hidden">
+          <div className="w-12 h-12 rounded-xl bg-[var(--emerald-surface)] text-[var(--emerald-foreground)] flex items-center justify-center mb-5">
             <CheckCircle className="w-6 h-6" />
           </div>
-          <h3 className="text-xl font-bold text-slate-900 mb-2">Our Solution</h3>
-          <p className="text-slate-600 leading-relaxed text-sm">
+          <h3 className="text-xl font-bold text-[var(--foreground)] mb-2">Our Solution</h3>
+          <p className="text-[var(--foreground-muted)] leading-relaxed text-sm">
             ResolveAI turns unstructured maintenance complaints into structured, schema-validated JSON, evaluates duplicate candidates using a hybrid formula, and routes verified tickets via n8n automated workflows.
           </p>
-          <ul className="mt-4 space-y-2 text-xs text-slate-600">
+          <ul className="mt-4 space-y-2 text-xs text-[var(--foreground-muted)]">
             <li className="flex items-center space-x-2">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
               <span>Gemma structured extraction for issue type, location & urgency</span>
@@ -327,47 +327,47 @@ export const PortalSelectionPage: React.FC<PortalSelectionPageProps> = ({
       {/* 4-Step Pipeline */}
       <section className="text-center space-y-8">
         <div>
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900">How It Works</h2>
-          <p className="text-slate-500 mt-1 text-sm">End-to-end intelligent maintenance lifecycle</p>
+          <h2 className="text-2xl md:text-3xl font-bold text-[var(--foreground)]">How It Works</h2>
+          <p className="text-[var(--foreground-muted)] mt-1 text-sm">End-to-end intelligent maintenance lifecycle</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-left">
-          <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-red-300 transition-all">
-            <div className="w-10 h-10 rounded-lg bg-red-50 text-red-700 font-bold flex items-center justify-center mb-4">
+          <div className="p-6 rounded-2xl bg-[var(--surface)] border border-[var(--border)] shadow-sm hover:border-[var(--red-border)] transition-all">
+            <div className="w-10 h-10 rounded-lg bg-[var(--red-surface)] text-[var(--red-foreground)] font-bold flex items-center justify-center mb-4">
               1
             </div>
-            <h4 className="text-base font-bold text-slate-900 mb-1">Submit</h4>
-            <p className="text-xs text-slate-600">
+            <h4 className="text-base font-bold text-[var(--foreground)] mb-1">Submit</h4>
+            <p className="text-xs text-[var(--foreground-muted)]">
               Student files a natural text complaint with optional OpenCV-validated image evidence.
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-red-300 transition-all">
-            <div className="w-10 h-10 rounded-lg bg-red-50 text-red-700 font-bold flex items-center justify-center mb-4">
+          <div className="p-6 rounded-2xl bg-[var(--surface)] border border-[var(--border)] shadow-sm hover:border-[var(--red-border)] transition-all">
+            <div className="w-10 h-10 rounded-lg bg-[var(--red-surface)] text-[var(--red-foreground)] font-bold flex items-center justify-center mb-4">
               2
             </div>
-            <h4 className="text-base font-bold text-slate-900 mb-1">Understand</h4>
-            <p className="text-xs text-slate-600">
+            <h4 className="text-base font-bold text-[var(--foreground)] mb-1">Understand</h4>
+            <p className="text-xs text-[var(--foreground-muted)]">
               Gemma model extracts schema-validated JSON: category, building block, floor/room, and urgency score.
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-red-300 transition-all">
-            <div className="w-10 h-10 rounded-lg bg-red-50 text-red-700 font-bold flex items-center justify-center mb-4">
+          <div className="p-6 rounded-2xl bg-[var(--surface)] border border-[var(--border)] shadow-sm hover:border-[var(--red-border)] transition-all">
+            <div className="w-10 h-10 rounded-lg bg-[var(--red-surface)] text-[var(--red-foreground)] font-bold flex items-center justify-center mb-4">
               3
             </div>
-            <h4 className="text-base font-bold text-slate-900 mb-1">Compare</h4>
-            <p className="text-xs text-slate-600">
+            <h4 className="text-base font-bold text-[var(--foreground)] mb-1">Compare</h4>
+            <p className="text-xs text-[var(--foreground-muted)]">
               Hybrid check flags duplicate candidates combining embeddings, physical proximity, and OpenCV dHash.
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-red-300 transition-all">
-            <div className="w-10 h-10 rounded-lg bg-red-50 text-red-700 font-bold flex items-center justify-center mb-4">
+          <div className="p-6 rounded-2xl bg-[var(--surface)] border border-[var(--border)] shadow-sm hover:border-[var(--red-border)] transition-all">
+            <div className="w-10 h-10 rounded-lg bg-[var(--red-surface)] text-[var(--red-foreground)] font-bold flex items-center justify-center mb-4">
               4
             </div>
-            <h4 className="text-base font-bold text-slate-900 mb-1">Route & Sync</h4>
-            <p className="text-xs text-slate-600">
+            <h4 className="text-base font-bold text-[var(--foreground)] mb-1">Route & Sync</h4>
+            <p className="text-xs text-[var(--foreground-muted)]">
               n8n workflow assigns tickets directly or holds for approval, while Notion synchronizes testing logs.
             </p>
           </div>
@@ -375,7 +375,7 @@ export const PortalSelectionPage: React.FC<PortalSelectionPageProps> = ({
       </section>
 
       {/* Unique Technical USPs */}
-      <section className="p-8 md:p-12 rounded-3xl bg-slate-900 text-white border border-slate-800">
+      <section className="theme-inverse p-8 md:p-12 rounded-3xl bg-slate-900 text-white border border-slate-800">
         <div className="max-w-3xl mb-8">
           <span className="text-red-400 font-semibold text-xs tracking-wider uppercase">Technical Edge</span>
           <h2 className="text-3xl font-bold mt-2">Core USPs & Operational Safeguards</h2>
@@ -425,17 +425,17 @@ export const PortalSelectionPage: React.FC<PortalSelectionPageProps> = ({
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-slate-200 pt-8 pb-12">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
+      <footer className="border-t border-[var(--border)] pt-8 pb-12">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[var(--foreground-muted)]">
           <div>
-            <p className="font-semibold text-slate-800">ResolveAI • HackShift_404</p>
+            <p className="font-semibold text-[var(--foreground)]">ResolveAI • HackShift_404</p>
             <p className="text-xs">Anshul Gupta (Team Leader) • Aditya Gupta • Shivam Jhingan</p>
           </div>
           <div className="flex items-center space-x-4">
-            <span className="px-3 py-1 rounded-full bg-slate-100 font-medium text-slate-700 border border-slate-200 text-xs">
+            <span className="px-3 py-1 rounded-full bg-[var(--surface-muted)] font-medium text-[var(--foreground)] border border-[var(--border)] text-xs">
               Track: n8n (Primary Sponsored Track)
             </span>
-            <span className="text-xs text-slate-400">Reforged '26 • BPIT</span>
+            <span className="text-xs text-[var(--foreground-muted)]">Reforged '26 • BPIT</span>
           </div>
         </div>
       </footer>

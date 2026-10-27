@@ -43,7 +43,7 @@ def render_testing_portal(client: ResolveAIClient):
     col_u1, col_u2 = st.columns([3, 1])
     with col_u1:
         st.markdown(
-            f"### 🧪 QA & Reliability Testing Portal — <span style='color: #c084fc;'>{user.get('display_name', 'QA Tester')}</span>",
+            f"### 🧪 QA & Reliability Testing Portal — <span style='color: var(--resolve-accent);'>{user.get('display_name', 'QA Tester')}</span>",
             unsafe_allow_html=True,
         )
         st.caption(f"Role: `tester` | Username: `{user.get('username')}` | System Testing Suite")
@@ -368,15 +368,15 @@ def _render_tester_login(client: ResolveAIClient):
         st.markdown(
             """<div class="portal-card">
                 <div class="portal-badge badge-restricted">Demo Credentials</div>
-                <h4 style="color: #fff; margin: 0 0 0.5rem 0;">Testing Credentials</h4>
-                <p style="color: #94a3b8; font-size: 0.85rem;">
+                <h4 style="color: inherit; margin: 0 0 0.5rem 0;">Testing Credentials</h4>
+                <p style="color: var(--resolve-muted); font-size: 0.85rem;">
                     Configured in <code>backend/.env</code>:
                 </p>
-                <div style="background: rgba(0,0,0,0.3); padding: 0.8rem; border-radius: 8px; font-family: monospace; font-size: 0.85rem;">
+                <div style="background: var(--resolve-surface); padding: 0.8rem; border-radius: 8px; font-family: monospace; font-size: 0.85rem;">
                     ID: <b>tester_resolve</b><br/>
                     Password: <b>OrbitPanda82</b>
                 </div>
-                <p style="color: #64748b; font-size: 0.75rem; margin-top: 0.8rem;">
+                <p style="color: var(--resolve-muted); font-size: 0.75rem; margin-top: 0.8rem;">
                     Provides access to backend health, API tests, Gemma AI prompt evaluation, Cloudinary validation, and Notion sync.
                 </p>
             </div>""",

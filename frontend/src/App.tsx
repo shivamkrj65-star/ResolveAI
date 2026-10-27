@@ -230,7 +230,7 @@ export function App() {
   const pendingReviewCount = cases.filter(c => c.status === 'held_for_review').length;
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col text-slate-900 selection:bg-red-200">
+    <div className="min-h-screen app-shell bg-[var(--page-background)] flex flex-col text-[var(--foreground)] selection:bg-red-200 selection:text-slate-900">
       <Navbar 
         currentPortal={currentPortal}
         currentTab={currentTab} 
@@ -329,81 +329,81 @@ export function App() {
       {/* Case Detail / Audit Modal */}
       {selectedCaseDetail && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-2xl w-full border border-slate-200 shadow-2xl p-6 space-y-6 max-h-[90vh] overflow-y-auto">
-            <div className="flex justify-between items-start border-b border-slate-100 pb-4">
+          <div className="bg-[var(--surface)] rounded-2xl max-w-2xl w-full border border-[var(--border)] shadow-2xl p-6 space-y-6 max-h-[90vh] overflow-y-auto">
+            <div className="flex justify-between items-start border-b border-[var(--border)] pb-4">
               <div>
-                <span className="text-xs font-mono font-bold text-red-700">{selectedCaseDetail.case_number}</span>
-                <h3 className="text-xl font-bold text-slate-900 mt-1">Audit Trail & Evidence Record</h3>
+                <span className="text-xs font-mono font-bold text-[var(--red-foreground)]">{selectedCaseDetail.case_number}</span>
+                <h3 className="text-xl font-bold text-[var(--foreground)] mt-1">Audit Trail & Evidence Record</h3>
               </div>
               <button 
                 onClick={() => setSelectedCaseDetail(null)}
-                className="text-slate-400 hover:text-slate-600 p-1 rounded-lg text-lg"
+                className="text-[var(--foreground-muted)] hover:text-[var(--foreground-muted)] p-1 rounded-lg text-lg"
               >
                 ✕
               </button>
             </div>
 
             {/* Original Complaint */}
-            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
-              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Raw Student Submission</span>
-              <p className="text-sm text-slate-800 font-medium italic">"{selectedCaseDetail.raw_complaint}"</p>
-              <p className="text-xs text-slate-400 pt-1">Reported by {selectedCaseDetail.student_name} ({selectedCaseDetail.student_email})</p>
+            <div className="p-4 rounded-xl bg-[var(--surface-muted)] border border-[var(--border)] space-y-1">
+              <span className="text-xs font-bold text-[var(--foreground-muted)] uppercase tracking-wider">Raw Student Submission</span>
+              <p className="text-sm text-[var(--foreground)] font-medium italic">"{selectedCaseDetail.raw_complaint}"</p>
+              <p className="text-xs text-[var(--foreground-muted)] pt-1">Reported by {selectedCaseDetail.student_name} ({selectedCaseDetail.student_email})</p>
             </div>
 
             {/* Gemma Extraction Details */}
             <div className="space-y-2">
-              <h4 className="text-xs font-bold text-slate-700 uppercase tracking-wider">Gemma Structured Extraction</h4>
+              <h4 className="text-xs font-bold text-[var(--foreground)] uppercase tracking-wider">Gemma Structured Extraction</h4>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-                <div className="p-3 rounded-lg bg-slate-50 border border-slate-200">
-                  <div className="text-slate-400">Category</div>
-                  <div className="font-bold text-slate-800 capitalize">{selectedCaseDetail.extraction.issue_type}</div>
+                <div className="p-3 rounded-lg bg-[var(--surface-muted)] border border-[var(--border)]">
+                  <div className="text-[var(--foreground-muted)]">Category</div>
+                  <div className="font-bold text-[var(--foreground)] capitalize">{selectedCaseDetail.extraction.issue_type}</div>
                 </div>
-                <div className="p-3 rounded-lg bg-slate-50 border border-slate-200">
-                  <div className="text-slate-400">Building</div>
-                  <div className="font-bold text-slate-800">{selectedCaseDetail.extraction.building_block}</div>
+                <div className="p-3 rounded-lg bg-[var(--surface-muted)] border border-[var(--border)]">
+                  <div className="text-[var(--foreground-muted)]">Building</div>
+                  <div className="font-bold text-[var(--foreground)]">{selectedCaseDetail.extraction.building_block}</div>
                 </div>
-                <div className="p-3 rounded-lg bg-slate-50 border border-slate-200">
-                  <div className="text-slate-400">Priority</div>
-                  <div className="font-bold text-slate-800">{selectedCaseDetail.priority_score}/10 ({selectedCaseDetail.priority_level})</div>
+                <div className="p-3 rounded-lg bg-[var(--surface-muted)] border border-[var(--border)]">
+                  <div className="text-[var(--foreground-muted)]">Priority</div>
+                  <div className="font-bold text-[var(--foreground)]">{selectedCaseDetail.priority_score}/10 ({selectedCaseDetail.priority_level})</div>
                 </div>
-                <div className="p-3 rounded-lg bg-slate-50 border border-slate-200">
-                  <div className="text-slate-400">Confidence</div>
-                  <div className="font-bold text-slate-800">{(selectedCaseDetail.extraction.confidence * 100).toFixed(0)}%</div>
+                <div className="p-3 rounded-lg bg-[var(--surface-muted)] border border-[var(--border)]">
+                  <div className="text-[var(--foreground-muted)]">Confidence</div>
+                  <div className="font-bold text-[var(--foreground)]">{(selectedCaseDetail.extraction.confidence * 100).toFixed(0)}%</div>
                 </div>
               </div>
             </div>
 
-            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs">
-              <div className="font-bold text-slate-700 uppercase tracking-wider">Priority evidence</div>
-              <p className="text-slate-600 mt-1">{selectedCaseDetail.corroborating_report_count} corroborating report{selectedCaseDetail.corroborating_report_count === 1 ? '' : 's'}</p>
-              <ul className="list-disc ml-4 mt-1 space-y-0.5 text-slate-600">
+            <div className="p-3 rounded-xl bg-[var(--surface-muted)] border border-[var(--border)] text-xs">
+              <div className="font-bold text-[var(--foreground)] uppercase tracking-wider">Priority evidence</div>
+              <p className="text-[var(--foreground-muted)] mt-1">{selectedCaseDetail.corroborating_report_count} corroborating report{selectedCaseDetail.corroborating_report_count === 1 ? '' : 's'}</p>
+              <ul className="list-disc ml-4 mt-1 space-y-0.5 text-[var(--foreground-muted)]">
                 {selectedCaseDetail.priority_reasons.map((reason, index) => <li key={index}>{reason}</li>)}
               </ul>
             </div>
 
             {selectedCaseDetail.images.length > 0 && (
               <div className="space-y-2">
-                <h4 className="text-xs font-bold text-slate-700 uppercase tracking-wider">OpenCV & Cloudinary Evidence</h4>
+                <h4 className="text-xs font-bold text-[var(--foreground)] uppercase tracking-wider">OpenCV & Cloudinary Evidence</h4>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {selectedCaseDetail.images.map((image) => (
-                    <div key={image.id} className="rounded-xl overflow-hidden border border-slate-200 bg-white">
+                    <div key={image.id} className="rounded-xl overflow-hidden border border-[var(--border)] bg-[var(--surface)]">
                       <a href={image.secure_url} target="_blank" rel="noreferrer" className="block relative group">
                         <img src={image.thumbnail_url} alt={image.original_filename} className="h-28 w-full object-cover group-hover:opacity-90 transition-opacity" />
                         <div className="absolute top-1.5 right-1.5 bg-slate-900/80 text-[10px] text-white px-1.5 py-0.5 rounded font-mono">
                           {image.width}×{image.height}
                         </div>
                       </a>
-                      <div className="p-2 text-[10px] space-y-0.5 text-slate-600">
+                      <div className="p-2 text-[10px] space-y-0.5 text-[var(--foreground-muted)]">
                         <div className="truncate font-medium">{image.original_filename}</div>
                         {image.visual_analysis && (
-                          <div className="font-mono text-slate-500">
+                          <div className="font-mono text-[var(--foreground-muted)]">
                             Sharpness: {image.visual_analysis.sharpness} · Brightness: {image.visual_analysis.brightness}
                           </div>
                         )}
                         {image.quality_warning ? (
-                          <div className="text-amber-700 font-medium">Quality review suggested</div>
+                          <div className="text-[var(--amber-foreground)] font-medium">Quality review suggested</div>
                         ) : (
-                          <div className="text-emerald-700 font-medium">✓ OpenCV Validated</div>
+                          <div className="text-[var(--emerald-foreground)] font-medium">✓ OpenCV Validated</div>
                         )}
                       </div>
                     </div>
@@ -415,12 +415,12 @@ export function App() {
             {/* Duplicate Candidates Breakdown */}
             {selectedCaseDetail.duplicate_candidates && selectedCaseDetail.duplicate_candidates.length > 0 && (
               <div className="space-y-2">
-                <h4 className="text-xs font-bold text-amber-800 uppercase tracking-wider">Duplicate Candidate Evidence</h4>
+                <h4 className="text-xs font-bold text-[var(--amber-foreground)] uppercase tracking-wider">Duplicate Candidate Evidence</h4>
                 {selectedCaseDetail.duplicate_candidates.map((cand, idx) => (
-                  <div key={idx} className="p-3.5 rounded-xl bg-amber-50/80 border border-amber-200 text-xs space-y-1">
-                    <div className="font-bold text-slate-900">Matches: #{cand.matched_case_id} — {cand.matched_case_title}</div>
-                    <p className="text-slate-600">{cand.reason}</p>
-                    <div className="font-mono text-[11px] text-amber-900 pt-1">
+                  <div key={idx} className="p-3.5 rounded-xl bg-[var(--amber-surface)]/80 border border-[var(--amber-border)] text-xs space-y-1">
+                    <div className="font-bold text-[var(--foreground)]">Matches: #{cand.matched_case_id} — {cand.matched_case_title}</div>
+                    <p className="text-[var(--foreground-muted)]">{cand.reason}</p>
+                    <div className="font-mono text-[11px] text-[var(--amber-foreground)] pt-1">
                       Hybrid: {(cand.overall_hybrid_score * 100).toFixed(1)}% | Semantic: {(cand.semantic_similarity * 100).toFixed(1)}% | Location: {(cand.location_match_score * 100).toFixed(1)}% | Time: {(cand.time_window_score * 100).toFixed(1)}%{cand.visual_similarity !== null && cand.visual_similarity !== undefined ? ` | Visual: ${(cand.visual_similarity * 100).toFixed(1)}%` : ''}
                     </div>
                   </div>
@@ -430,20 +430,20 @@ export function App() {
 
             {/* Event Timeline */}
             <div className="space-y-3">
-              <h4 className="text-xs font-bold text-slate-700 uppercase tracking-wider">Immutable History Timeline</h4>
-              <div className="space-y-2 border-l-2 border-red-200 pl-4 ml-2">
+              <h4 className="text-xs font-bold text-[var(--foreground)] uppercase tracking-wider">Immutable History Timeline</h4>
+              <div className="space-y-2 border-l-2 border-[var(--red-border)] pl-4 ml-2">
                 {selectedCaseDetail.history.map((h, i) => (
                   <div key={i} className="text-xs relative">
                     <div className="w-2.5 h-2.5 rounded-full bg-red-600 absolute -left-[21px] top-1" />
-                    <span className="font-medium text-slate-800">{h.event}</span>
-                    <span className="text-[10px] text-slate-400 ml-2 font-mono">{new Date(h.timestamp).toLocaleTimeString()}</span>
+                    <span className="font-medium text-[var(--foreground)]">{h.event}</span>
+                    <span className="text-[10px] text-[var(--foreground-muted)] ml-2 font-mono">{new Date(h.timestamp).toLocaleTimeString()}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Footer */}
-            <div className="flex justify-end pt-2 border-t border-slate-100">
+            <div className="flex justify-end pt-2 border-t border-[var(--border)]">
               <button
                 onClick={() => setSelectedCaseDetail(null)}
                 className="px-4 py-2 rounded-xl bg-slate-900 text-white text-xs font-semibold hover:bg-slate-800"
