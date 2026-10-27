@@ -2,6 +2,7 @@ import React, { useId, useState } from 'react';
 import { ShieldCheck, Lock, User, AlertCircle, ArrowLeft, KeyRound, Check } from 'lucide-react';
 import { apiService } from '../services/api';
 import { UserSession } from '../types';
+import { Dialog } from './Dialog';
 
 interface LoginModalProps {
   portalRole: 'admin' | 'tester';
@@ -56,14 +57,14 @@ export const LoginModal: React.FC<LoginModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-md flex items-center justify-center p-4">
+    <Dialog labelledBy={`${formId}-title`} onDismiss={onCancel}>
       <div className="login-panel bg-[var(--surface)] text-[var(--foreground)] rounded-3xl max-w-md w-full max-h-[calc(100dvh-2rem)] overflow-y-auto border border-[var(--border)] shadow-2xl p-7 sm:p-8 space-y-6 animate-in fade-in zoom-in-95 duration-150">
         {/* Header */}
         <div className="text-center space-y-2">
           <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-red-700 to-rose-600 text-white flex items-center justify-center mx-auto shadow-md shadow-red-600/20">
             {isAdmin ? <ShieldCheck className="w-6 h-6" /> : <Lock className="w-6 h-6" />}
           </div>
-          <h2 className="text-2xl font-black text-[var(--foreground)]">
+          <h2 id={`${formId}-title`} className="text-2xl font-black text-[var(--foreground)]">
             {isAdmin ? 'Admin Portal Login' : 'Testing Portal Login'}
           </h2>
           <p className="text-xs text-[var(--foreground-muted)]">
@@ -165,6 +166,6 @@ export const LoginModal: React.FC<LoginModalProps> = ({
           Demo authentication verified against backend environment variables.
         </p>
       </div>
-    </div>
+    </Dialog>
   );
 };

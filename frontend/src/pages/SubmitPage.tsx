@@ -190,10 +190,11 @@ export const SubmitPage: React.FC<SubmitPageProps> = ({ onCaseCreated, initialTe
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Free-form text */}
           <div className="space-y-2">
-            <label className="block text-sm font-semibold text-[var(--foreground)]">
+            <label htmlFor="complaint-description" className="block text-sm font-semibold text-[var(--foreground)]">
               Complaint Description <span className="text-red-600">*</span>
             </label>
             <textarea
+              id="complaint-description"
               rows={4}
               value={complaintText}
               onChange={(e) => setComplaintText(e.target.value)}
@@ -209,12 +210,13 @@ export const SubmitPage: React.FC<SubmitPageProps> = ({ onCaseCreated, initialTe
           {/* Student metadata */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-[var(--foreground)] flex items-center space-x-1.5">
+              <label htmlFor="reporter-name" className="text-xs font-semibold text-[var(--foreground)] flex items-center space-x-1.5">
                 <User className="w-3.5 h-3.5 text-[var(--foreground-muted)]" />
                 <span>Reporter Name</span>
               </label>
               <input
                 type="text"
+                id="reporter-name"
                 value={studentName}
                 onChange={(e) => setStudentName(e.target.value)}
                 className="w-full px-3.5 py-2 rounded-lg border border-[var(--border)] text-sm focus:border-red-600 outline-none"
@@ -222,12 +224,13 @@ export const SubmitPage: React.FC<SubmitPageProps> = ({ onCaseCreated, initialTe
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-[var(--foreground)] flex items-center space-x-1.5">
+              <label htmlFor="reporter-email" className="text-xs font-semibold text-[var(--foreground)] flex items-center space-x-1.5">
                 <Mail className="w-3.5 h-3.5 text-[var(--foreground-muted)]" />
                 <span>Reporter Email</span>
               </label>
               <input
                 type="email"
+                id="reporter-email"
                 value={studentEmail}
                 onChange={(e) => setStudentEmail(e.target.value)}
                 className="w-full px-3.5 py-2 rounded-lg border border-[var(--border)] text-sm focus:border-red-600 outline-none"
@@ -238,11 +241,12 @@ export const SubmitPage: React.FC<SubmitPageProps> = ({ onCaseCreated, initialTe
           {/* Location cues */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-[var(--foreground)] flex items-center space-x-1.5">
+              <label htmlFor="building-hint" className="text-xs font-semibold text-[var(--foreground)] flex items-center space-x-1.5">
                 <MapPin className="w-3.5 h-3.5 text-[var(--foreground-muted)]" />
                 <span>Building Block Hint</span>
               </label>
               <select
+                id="building-hint"
                 value={reportedBlock}
                 onChange={(e) => setReportedBlock(e.target.value)}
                 className="w-full px-3.5 py-2 rounded-lg border border-[var(--border)] text-sm focus:border-red-600 outline-none bg-[var(--surface)]"
@@ -261,14 +265,15 @@ export const SubmitPage: React.FC<SubmitPageProps> = ({ onCaseCreated, initialTe
 
            {/* Image evidence */}
            <div className="space-y-2">
-             <div className="flex items-center justify-between gap-3">
-               <label className="text-sm font-semibold text-[var(--foreground)] flex items-center gap-2">
+             <div className="flex flex-wrap items-center justify-between gap-3">
+               <label htmlFor="photo-evidence" className="text-sm font-semibold text-[var(--foreground)] flex items-center gap-2">
                  <ImagePlus className="w-4 h-4 text-[var(--red-foreground)]" />
                  Photo evidence <span className="font-normal text-[var(--foreground-muted)] text-xs">(optional)</span>
                </label>
                <span className="text-[11px] text-[var(--foreground-muted)]">JPG, PNG, WEBP · up to 8 MB each</span>
              </div>
              <input
+               id="photo-evidence"
                ref={imageInputRef}
                type="file"
                accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp"
@@ -280,7 +285,12 @@ export const SubmitPage: React.FC<SubmitPageProps> = ({ onCaseCreated, initialTe
                role="button"
                tabIndex={0}
                onClick={() => imageInputRef.current?.click()}
-               onKeyDown={(event) => event.key === 'Enter' && imageInputRef.current?.click()}
+               onKeyDown={(event) => {
+                 if (event.key === 'Enter' || event.key === ' ') {
+                   event.preventDefault();
+                   imageInputRef.current?.click();
+                 }
+               }}
                onDragOver={(event) => event.preventDefault()}
                onDrop={handleDrop}
                className="cursor-pointer rounded-xl border-2 border-dashed border-[var(--border)] hover:border-red-400 bg-[var(--surface-muted)] hover:bg-[var(--red-surface)]/40 px-5 py-6 text-center transition-colors"
@@ -310,11 +320,12 @@ export const SubmitPage: React.FC<SubmitPageProps> = ({ onCaseCreated, initialTe
            </div>
 
            <div className="space-y-1.5 max-w-xs">
-             <label className="text-xs font-semibold text-[var(--foreground)] flex items-center gap-1.5">
+             <label htmlFor="affected-people" className="text-xs font-semibold text-[var(--foreground)] flex flex-wrap items-center gap-1.5">
                <Users className="w-3.5 h-3.5 text-[var(--foreground-muted)]" /> Estimated people affected <span className="font-normal text-[var(--foreground-muted)]">(optional)</span>
              </label>
              <input
                type="number"
+               id="affected-people"
                min="0"
                value={affectedPeople}
                onChange={(event) => setAffectedPeople(event.target.value)}
@@ -324,9 +335,10 @@ export const SubmitPage: React.FC<SubmitPageProps> = ({ onCaseCreated, initialTe
            </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-[var(--foreground)]">Floor / Room Hint</label>
+              <label htmlFor="floor-hint" className="text-xs font-semibold text-[var(--foreground)]">Floor / Room Hint</label>
               <input
                 type="text"
+                id="floor-hint"
                 value={reportedFloor}
                 onChange={(e) => setReportedFloor(e.target.value)}
                 placeholder="e.g. 2nd Floor, Stairway"

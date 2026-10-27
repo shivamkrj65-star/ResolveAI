@@ -115,3 +115,42 @@ body {
   color: var(--foreground-muted);
   opacity: 1;
 }
+
+.app-dialog {
+  margin: auto;
+  padding: 0;
+  border: 0;
+  width: fit-content;
+  max-width: calc(100% - 2rem);
+  max-height: calc(100dvh - 2rem);
+  background: transparent;
+  color: var(--foreground);
+  overflow: visible;
+}
+
+.app-dialog::backdrop {
+  background: rgb(2 6 23 / 70%);
+  backdrop-filter: blur(8px);
+}
+
+body:has(.app-dialog[open]) { overflow: hidden; }
+
+.app-shell :is(button, a, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.theme-inverse { --focus-ring: #fca5a5; }
+
+.app-navbar nav { padding-inline: 4px; }
+.app-navbar button { min-height: 36px; min-width: 36px; }
+.app-shell main, .app-dialog { overflow-wrap: anywhere; }
+
+@media (prefers-reduced-motion: reduce) {
+  .app-shell *, .app-shell *::before, .app-shell *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -140,6 +140,7 @@ export const TrackComplaintPage: React.FC<TrackComplaintPageProps> = ({ initialT
           <div className="relative flex-1">
             <Search className="w-4 h-4 absolute left-3.5 top-3.5 text-[var(--foreground-muted)]" />
             <input
+              aria-label="Ticket ID or Case ID"
               type="text"
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}

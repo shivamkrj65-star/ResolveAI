@@ -246,6 +246,27 @@ def apply_custom_css():
             color: inherit !important;
             border-bottom-color: #6366f1 !important;
         }
+
+        .stApp :is(a, button, input, textarea, select, [tabindex]):focus-visible {
+            outline: 2px solid currentColor;
+            outline-offset: 2px;
+        }
+
+        @media (max-width: 640px) {
+            .portal-card { padding: 1rem; overflow-wrap: anywhere; }
+            .portal-card-header > * { min-width: 0; }
+            .portal-card-header { flex-wrap: wrap; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .stApp *, .stApp *::before, .stApp *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .portal-card:hover { transform: none; }
+        }
         </style>
         """,
         unsafe_allow_html=True,

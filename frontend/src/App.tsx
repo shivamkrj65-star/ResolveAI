@@ -9,6 +9,7 @@ import { WorkflowView } from './pages/WorkflowView';
 import { BenchmarkPage } from './pages/BenchmarkPage';
 import { NotionDocsPage } from './pages/NotionDocsPage';
 import { LoginModal } from './components/LoginModal';
+import { Dialog } from './components/Dialog';
 import { CaseRecord, UserSession } from './types';
 import { apiService } from './services/api';
 import { RotateCcw } from 'lucide-react';
@@ -328,14 +329,15 @@ export function App() {
 
       {/* Case Detail / Audit Modal */}
       {selectedCaseDetail && (
-        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <Dialog labelledBy="audit-dialog-title" onDismiss={() => setSelectedCaseDetail(null)}>
           <div className="bg-[var(--surface)] rounded-2xl max-w-2xl w-full border border-[var(--border)] shadow-2xl p-6 space-y-6 max-h-[90vh] overflow-y-auto">
             <div className="flex justify-between items-start border-b border-[var(--border)] pb-4">
               <div>
                 <span className="text-xs font-mono font-bold text-[var(--red-foreground)]">{selectedCaseDetail.case_number}</span>
-                <h3 className="text-xl font-bold text-[var(--foreground)] mt-1">Audit Trail & Evidence Record</h3>
+                <h3 id="audit-dialog-title" className="text-xl font-bold text-[var(--foreground)] mt-1">Audit Trail & Evidence Record</h3>
               </div>
               <button 
+                aria-label="Close audit record"
                 onClick={() => setSelectedCaseDetail(null)}
                 className="text-[var(--foreground-muted)] hover:text-[var(--foreground-muted)] p-1 rounded-lg text-lg"
               >
@@ -452,7 +454,7 @@ export function App() {
               </button>
             </div>
           </div>
-        </div>
+        </Dialog>
       )}
     </div>
   );
