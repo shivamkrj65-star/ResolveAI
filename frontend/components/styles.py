@@ -33,37 +33,6 @@ def apply_custom_css():
                               radial-gradient(circle at 85% 85%, rgba(139, 92, 246, 0.08) 0%, transparent 45%);
         }
 
-        /* Top Header Container */
-        .brand-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1.2rem 1.8rem;
-            background: var(--resolve-surface);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--resolve-border);
-            border-radius: 16px;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
-        }
-
-        .brand-title {
-            font-size: 1.6rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #a5b4fc 0%, #6366f1 50%, #c084fc 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-
-        .brand-subtitle {
-            font-size: 0.85rem;
-            color: var(--resolve-muted);
-            font-weight: 500;
-        }
-
         /* Modern Portal Cards */
         .portal-card {
             background: var(--resolve-surface);

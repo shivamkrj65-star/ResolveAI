@@ -1,18 +1,20 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { lazy, useState, useEffect, useCallback } from 'react';
 import { Navbar } from './components/Navbar';
 import { PortalSelectionPage } from './pages/PortalSelectionPage';
 import { LandingPage } from './pages/LandingPage';
 import { SubmitPage } from './pages/SubmitPage';
 import { TrackComplaintPage } from './pages/TrackComplaintPage';
-import { DashboardPage } from './pages/DashboardPage';
-import { WorkflowView } from './pages/WorkflowView';
-import { BenchmarkPage } from './pages/BenchmarkPage';
-import { NotionDocsPage } from './pages/NotionDocsPage';
+import { PageBoundary } from './components/PageBoundary';
 import { LoginModal } from './components/LoginModal';
 import { Dialog } from './components/Dialog';
 import { CaseRecord, UserSession } from './types';
 import { apiService } from './services/api';
-import { RotateCcw } from 'lucide-react';
+
+// Public visitors do not need the protected portal code on initial load.
+const DashboardPage = lazy(() => import('./pages/DashboardPage').then(module => ({ default: module.DashboardPage })));
+const WorkflowView = lazy(() => import('./pages/WorkflowView').then(module => ({ default: module.WorkflowView })));
+const BenchmarkPage = lazy(() => import('./pages/BenchmarkPage').then(module => ({ default: module.BenchmarkPage })));
+const NotionDocsPage = lazy(() => import('./pages/NotionDocsPage').then(module => ({ default: module.NotionDocsPage })));
 
 export function App() {
   // Parse initial state from URL query parameters
@@ -285,7 +287,7 @@ export function App() {
 
         {/* 3. ADMIN PORTAL (PROTECTED) */}
         {currentPortal === 'admin' && session?.role === 'admin' && (
-          <>
+          <PageBoundary key={`admin-${currentTab}`}>
             {currentTab === 'triage' && (
               <DashboardPage 
                 cases={cases} 
@@ -293,12 +295,12 @@ export function App() {
                 onSelectCase={(c) => setSelectedCaseDetail(c)} 
               />
             )}
-          </>
+          </PageBoundary>
         )}
 
         {/* 4. TESTING PORTAL (PROTECTED) */}
         {currentPortal === 'testing' && session?.role === 'tester' && (
-          <>
+          <PageBoundary key={`testing-${currentTab}`}>
             {currentTab === 'workflow' && (
               <WorkflowView cases={cases} />
             )}
@@ -310,7 +312,7 @@ export function App() {
             {currentTab === 'notion' && (
               <NotionDocsPage />
             )}
-          </>
+          </PageBoundary>
         )}
       </main>
 
