@@ -1,6 +1,6 @@
 # RESOLVEAI — Three Role-Based Portals Architecture
 
-> **Team**: HackShift_404
+> **Team**: HackShift_404<br>
 > **Members**: Anshul Gupta (Team Leader) • Aditya Gupta • Shivam Jhingan
 
 ---
