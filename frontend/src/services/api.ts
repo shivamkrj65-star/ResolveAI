@@ -11,7 +11,18 @@ import {
   NotionSyncResult
 } from '../types';
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || '/api/v1';
+const getApiBaseUrl = (): string => {
+  const envUrl = (import.meta.env.VITE_API_BASE_URL || '').trim();
+  // Default to live Render deployment if not explicitly configured locally
+  const rawUrl = envUrl || 'https://resolveai-trr9.onrender.com/api/v1';
+  let cleanUrl = rawUrl.replace(/\/+$/, '');
+  if (!cleanUrl.endsWith('/api/v1')) {
+    cleanUrl = `${cleanUrl}/api/v1`;
+  }
+  return cleanUrl;
+};
+
+const API_BASE = getApiBaseUrl();
 
 const client = axios.create({
   baseURL: API_BASE,
