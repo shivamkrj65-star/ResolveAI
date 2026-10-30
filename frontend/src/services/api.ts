@@ -21,16 +21,34 @@ const client = axios.create({
   }
 });
 
+// Attach bearer token for cross-origin deployments (e.g. Vercel frontend -> Render backend)
+client.interceptors.request.use((config) => {
+  const token = typeof window !== 'undefined' ? localStorage.getItem('resolveai_token') : null;
+  if (token) {
+    config.headers = config.headers || {};
+    config.headers['Authorization'] = `Bearer ${token}`;
+    config.headers['X-Session-Token'] = token;
+  }
+  return config;
+});
+
 export const apiService = {
   // Authentication & Session
   async login(username: string, password: string): Promise<LoginResponse> {
     const response = await client.post<LoginResponse>('/auth/login', { username, password });
+    if (response.data?.token) {
+      localStorage.setItem('resolveai_token', response.data.token);
+    }
     return response.data;
   },
 
   async logout(): Promise<{ message: string }> {
-    const response = await client.post<{ message: string }>('/auth/logout');
-    return response.data;
+    try {
+      const response = await client.post<{ message: string }>('/auth/logout');
+      return response.data;
+    } finally {
+      localStorage.removeItem('resolveai_token');
+    }
   },
 
   async getAuthStatus(): Promise<AuthStatusResponse> {

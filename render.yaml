@@ -1,0 +1,39 @@
+services:
+  - type: web
+    name: resolveai-backend
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: ENVIRONMENT
+        value: production
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
+      - key: NOTION_API_KEY
+        sync: false
+      - key: NOTION_PARENT_PAGE_ID
+        sync: false
+      - key: GEMMA_API_KEY
+        sync: false
+      - key: N8N_WEBHOOK_URL
+        sync: false
+      - key: ADMIN_USERNAME
+        value: admin_resolve
+      - key: ADMIN_PASSWORD
+        value: MapleFox47
+      - key: TESTER_USERNAME
+        value: tester_resolve
+      - key: TESTER_PASSWORD
+        value: OrbitPanda82
+      - key: SESSION_SECRET
+        generateValue: true
