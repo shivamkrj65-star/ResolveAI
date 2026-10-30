@@ -222,20 +222,10 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartDemo, onNavigat
         </div>
       </section>
 
-      {/* Team & Track Footer (Slide 1) */}
-      <footer className="border-t border-[var(--border)] pt-8 pb-12 max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[var(--foreground-muted)]">
-          <div>
-            <p className="font-semibold text-[var(--foreground)]">ResolveAI</p>
-            <p>Anshul Gupta (Team Leader) • Aditya Gupta • Shivam Jhingan</p>
-          </div>
-          <div className="flex items-center space-x-4">
-            <span className="px-3 py-1 rounded-full bg-[var(--surface-muted)] font-medium text-[var(--foreground)] border border-[var(--border)]">
-              Track: n8n (Primary Sponsored Track)
-            </span>
-            <span className="text-xs text-[var(--foreground-muted)]">BPIT</span>
-          </div>
-        </div>
+      {/* Footer */}
+      <footer className="border-t border-[var(--border)] pt-8 pb-12 text-center text-sm text-[var(--foreground-muted)] max-w-7xl mx-auto px-4 sm:px-6">
+        <p className="font-semibold text-[var(--foreground)] tracking-wide">ResolveAI</p>
+        <p className="text-xs uppercase tracking-wider text-[var(--foreground-muted)] mt-1">All Rights Reserved</p>
       </footer>
     </div>
   );
