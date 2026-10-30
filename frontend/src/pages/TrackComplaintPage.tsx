@@ -128,9 +128,9 @@ export const TrackComplaintPage: React.FC<TrackComplaintPageProps> = ({ initialT
           <Sparkles className="w-3.5 h-3.5" />
           <span>Public Ticket Tracker</span>
         </div>
-        <h1 className="text-3xl font-extrabold text-[var(--foreground)]">Track Campus Maintenance Ticket</h1>
+        <h1 className="text-3xl font-extrabold text-[var(--foreground)]">Track Maintenance Ticket</h1>
         <p className="text-[var(--foreground-muted)] max-w-xl mx-auto text-sm">
-          Check live dispatch status, department assignment, Gemma analysis, and audit timeline for your campus reports.
+          Check live dispatch status, department assignment, Gemma analysis, and audit timeline for your submitted reports.
         </p>
       </div>
 
@@ -260,7 +260,7 @@ export const TrackComplaintPage: React.FC<TrackComplaintPageProps> = ({ initialT
                 <span>Notice: Similar Active Report Detected</span>
               </div>
               <p className="text-[var(--foreground)]">
-                Our hybrid duplicate engine flagged that this issue might correspond to an ongoing maintenance ticket in this area. A campus facility supervisor will review before final dispatch.
+                Our hybrid duplicate engine flagged that this issue might correspond to an ongoing maintenance ticket in this area. A facility supervisor will review before final dispatch.
               </p>
             </div>
           )}

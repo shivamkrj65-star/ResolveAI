@@ -201,8 +201,8 @@ async def submit_complaint(request: Request):
             created_at=now_iso,
             last_updated_at=now_iso,
             raw_complaint=complaint.raw_text,
-            student_name=complaint.student_name or "Anonymous Student",
-            student_email=complaint.student_email or "student@campus.edu",
+            student_name=complaint.student_name or "Anonymous Reporter",
+            student_email=complaint.student_email or "reporter@example.com",
             extraction=extraction,
             images=assets,
             affected_people=complaint.affected_people,
@@ -211,7 +211,7 @@ async def submit_complaint(request: Request):
             status=CaseStatus.HELD_FOR_REVIEW if is_held else CaseStatus.ASSIGNED,
             review_status=ReviewStatus.PENDING_HUMAN_REVIEW if is_held else ReviewStatus.NOT_REQUIRED,
             history=[
-                {"timestamp": now_iso, "event": f"Student complaint submitted (RES-2026-{100 + len(existing_cases) + 1})"},
+                {"timestamp": now_iso, "event": f"Complaint submitted (RES-2026-{100 + len(existing_cases) + 1})"},
                 {"timestamp": now_iso, "event": f"Gemma extracted: {extraction.issue_type.value} at {extraction.building_block} (base priority {extraction.estimated_priority_score}/10)"},
             ],
         )
@@ -428,7 +428,7 @@ def get_case(case_id: str):
 
 @router.get("/cases/track/{identifier}", response_model=CaseRecord)
 def track_case(identifier: str):
-    """Public lookup: Track a student complaint by Case Number (e.g. RES-2026-101) or Case ID."""
+    """Public lookup: Track a complaint by Case Number (e.g. RES-2026-101) or Case ID."""
     needle = identifier.strip().lower()
     for case in db.get_all():
         if case.id.lower() == needle or case.case_number.lower() == needle:

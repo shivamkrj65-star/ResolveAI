@@ -254,7 +254,7 @@ export const WorkflowView: React.FC<WorkflowViewProps> = ({ cases }) => {
   "issue_type": "water_leak",
   "building_block": "Block B",
   "workflow_branch": "direct_assignment",
-  "assigned_team": "Campus Plumbing & Water Infrastructure Team",
+  "assigned_team": "Plumbing & Water Infrastructure Team",
   "is_held_as_duplicate": false,
   "confidence": 0.96,
   "detected_urgency": "high"

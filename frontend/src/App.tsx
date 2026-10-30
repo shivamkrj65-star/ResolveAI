@@ -194,7 +194,7 @@ export function App() {
 
   const handleStartDemo = (demoType: 'unique' | 'paraphrased') => {
     if (demoType === 'unique') {
-      setInitialSubmitText("Water across B-block stairway, puddles forming near the second landing and students are slipping.");
+      setInitialSubmitText("Water across B-block stairway, puddles forming near the second landing and people are slipping.");
     } else {
       setInitialSubmitText("Leaking pipe near the stairs in block B causing water to pool on the walkway.");
     }
@@ -349,7 +349,7 @@ export function App() {
 
             {/* Original Complaint */}
             <div className="p-4 rounded-xl bg-[var(--surface-muted)] border border-[var(--border)] space-y-1">
-              <span className="text-xs font-bold text-[var(--foreground-muted)] uppercase tracking-wider">Raw Student Submission</span>
+              <span className="text-xs font-bold text-[var(--foreground-muted)] uppercase tracking-wider">Raw User Submission</span>
               <p className="text-sm text-[var(--foreground)] font-medium italic">"{selectedCaseDetail.raw_complaint}"</p>
               <p className="text-xs text-[var(--foreground-muted)] pt-1">Reported by {selectedCaseDetail.student_name} ({selectedCaseDetail.student_email})</p>
             </div>

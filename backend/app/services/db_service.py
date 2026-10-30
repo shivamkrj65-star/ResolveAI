@@ -24,9 +24,9 @@ class InMemoryDatabase:
             id=c1_id,
             case_number="RES-2026-101",
             created_at=(datetime.datetime.now() - datetime.timedelta(hours=2)).isoformat(),
-            raw_complaint="Water across B-block stairway, puddles forming near the second landing and students are slipping.",
+            raw_complaint="Water across B-block stairway, puddles forming near the second landing and people are slipping.",
             student_name="Aarav Sharma",
-            student_email="aarav.s@campus.edu",
+            student_email="aarav.s@example.com",
             extraction=GemmaExtractionResult(
                 issue_type=IssueCategory.WATER_LEAK,
                 confidence=0.96,
@@ -36,14 +36,14 @@ class InMemoryDatabase:
                 clean_summary="Water leak causing puddles at Block B stairway",
                 detected_urgency=UrgencyLevel.HIGH,
                 estimated_priority_score=8,
-                raw_entities={"source": "Student Portal"}
+                raw_entities={"source": "User Portal"}
             ),
             duplicate_candidates=[],
             is_held_as_duplicate=False,
             status=CaseStatus.ASSIGNED,
             assigned_team="Campus Plumbing & Water Infrastructure Team",
             history=[
-                {"timestamp": (datetime.datetime.now() - datetime.timedelta(hours=2)).isoformat(), "event": "Case submitted by student"},
+                {"timestamp": (datetime.datetime.now() - datetime.timedelta(hours=2)).isoformat(), "event": "Case submitted by reporter"},
                 {"timestamp": (datetime.datetime.now() - datetime.timedelta(hours=2)).isoformat(), "event": "Gemma extraction: water_leak @ Block B"},
                 {"timestamp": (datetime.datetime.now() - datetime.timedelta(hours=1, minutes=58)).isoformat(), "event": "n8n Webhook: Route to Plumbing Team"}
             ],
@@ -70,7 +70,7 @@ class InMemoryDatabase:
             created_at=(datetime.datetime.now() - datetime.timedelta(hours=5)).isoformat(),
             raw_complaint="Sparking power socket near reading table 14 on 3rd floor library. Smell of burning plastic.",
             student_name="Priya Patel",
-            student_email="priya.p@campus.edu",
+            student_email="priya.p@example.com",
             extraction=GemmaExtractionResult(
                 issue_type=IssueCategory.ELECTRICAL,
                 confidence=0.98,
@@ -80,7 +80,7 @@ class InMemoryDatabase:
                 clean_summary="Sparking socket hazard in Central Library 3rd Floor",
                 detected_urgency=UrgencyLevel.CRITICAL,
                 estimated_priority_score=10,
-                raw_entities={"source": "Student Portal"}
+                raw_entities={"source": "User Portal"}
             ),
             duplicate_candidates=[],
             is_held_as_duplicate=False,
@@ -112,9 +112,9 @@ class InMemoryDatabase:
             id=c3_id,
             case_number="RES-2026-103",
             created_at=(datetime.datetime.now() - datetime.timedelta(days=1)).isoformat(),
-            raw_complaint="Classroom 204 in Block A has 4 broken student desks with loose screws and cracked plywood.",
+            raw_complaint="Classroom 204 in Block A has 4 broken desks with loose screws and cracked plywood.",
             student_name="Karan Mehta",
-            student_email="karan.m@campus.edu",
+            student_email="karan.m@example.com",
             extraction=GemmaExtractionResult(
                 issue_type=IssueCategory.FURNITURE,
                 confidence=0.94,
@@ -124,7 +124,7 @@ class InMemoryDatabase:
                 clean_summary="Broken desks needing carpentry in Block A Room 204",
                 detected_urgency=UrgencyLevel.LOW,
                 estimated_priority_score=4,
-                raw_entities={"source": "Student Portal"}
+                raw_entities={"source": "User Portal"}
             ),
             duplicate_candidates=[],
             is_held_as_duplicate=False,

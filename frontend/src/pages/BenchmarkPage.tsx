@@ -41,7 +41,7 @@ export const BenchmarkPage: React.FC = () => {
         </div>
         <h1 className="text-3xl font-extrabold text-[var(--foreground)]">Empirical Performance & Ablation Study</h1>
         <p className="text-sm text-[var(--foreground-muted)] max-w-2xl">
-          Held-out fictional campus benchmark evaluation showing classification accuracy, duplicate precision/recall, and ablation across detection strategies.
+          Held-out benchmark evaluation showing classification accuracy, duplicate precision/recall, and ablation across detection strategies.
         </p>
       </div>
 
@@ -89,7 +89,7 @@ export const BenchmarkPage: React.FC = () => {
           </h3>
         </div>
         <p className="text-xs text-[var(--foreground-muted)]">
-          Evaluated against {metrics.total_benchmark_cases} held-out student complaints with ground-truth duplicate and non-duplicate pairs.
+          Evaluated against {metrics.total_benchmark_cases} held-out complaints with ground-truth duplicate and non-duplicate pairs.
         </p>
 
         <div className="overflow-x-auto">

@@ -31,7 +31,7 @@ interface SelectedImage {
 export const SubmitPage: React.FC<SubmitPageProps> = ({ onCaseCreated, initialText = '', onTrackTicket }) => {
   const [complaintText, setComplaintText] = useState(initialText);
   const [studentName, setStudentName] = useState('Ananya Sen');
-  const [studentEmail, setStudentEmail] = useState('ananya.s@campus.edu');
+  const [studentEmail, setStudentEmail] = useState('ananya.s@example.com');
   const [reportedBlock, setReportedBlock] = useState('Block B');
   const [reportedFloor, setReportedFloor] = useState('2nd Floor');
   const [affectedPeople, setAffectedPeople] = useState('');
@@ -76,7 +76,7 @@ export const SubmitPage: React.FC<SubmitPageProps> = ({ onCaseCreated, initialTe
   const sampleComplaints = [
     {
       title: "Test Case 1: Unique Complaint",
-      text: "Water across B-block stairway, puddles forming near the second landing and students are slipping.",
+      text: "Water across B-block stairway, puddles forming near the second landing and people are slipping.",
       block: "Block B",
       floor: "2nd Floor"
     },
@@ -94,7 +94,7 @@ export const SubmitPage: React.FC<SubmitPageProps> = ({ onCaseCreated, initialTe
     },
     {
       title: "Broken Furniture Report",
-      text: "Classroom 204 in Block A has 3 broken student chairs with jagged iron frames sticking out.",
+      text: "Room 204 in Block A has 3 broken chairs with jagged iron frames sticking out.",
       block: "Block A",
       floor: "Room 204"
     }
@@ -154,9 +154,9 @@ export const SubmitPage: React.FC<SubmitPageProps> = ({ onCaseCreated, initialTe
       <div className="text-center space-y-2">
         <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-[var(--red-surface)] text-[var(--red-foreground)] text-xs font-semibold">
           <Sparkles className="w-3.5 h-3.5" />
-          <span>Student & Staff Portal</span>
+          <span>User Reporting Portal</span>
         </div>
-        <h1 className="text-3xl font-extrabold text-[var(--foreground)]">Report a Campus Maintenance Issue</h1>
+        <h1 className="text-3xl font-extrabold text-[var(--foreground)]">Report a Maintenance Issue</h1>
         <p className="text-[var(--foreground-muted)] max-w-xl mx-auto text-sm">
           Describe the problem in plain English. Gemma parses location & urgency, and our hybrid duplicate engine checks against existing reports before automated dispatch.
         </p>
@@ -207,7 +207,7 @@ export const SubmitPage: React.FC<SubmitPageProps> = ({ onCaseCreated, initialTe
             </p>
           </div>
 
-          {/* Student metadata */}
+          {/* Reporter metadata */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
               <label htmlFor="reporter-name" className="text-xs font-semibold text-[var(--foreground)] flex items-center space-x-1.5">
@@ -259,7 +259,7 @@ export const SubmitPage: React.FC<SubmitPageProps> = ({ onCaseCreated, initialTe
                 <option value="Hostel 1">Hostel 1</option>
                 <option value="Hostel 2">Hostel 2</option>
                 <option value="Cafeteria">Cafeteria</option>
-                <option value="Main Campus">Main Campus</option>
+                <option value="Main Facility">Main Facility</option>
               </select>
             </div>
 

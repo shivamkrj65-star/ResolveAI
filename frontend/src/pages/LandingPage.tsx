@@ -32,7 +32,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartDemo, onNavigat
           </h1>
 
           <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Free-form student complaints cause severe duplication, unclear categories, and slow triage. ResolveAI extracts structured JSON with Gemma, runs hybrid duplicate detection, and orchestrates team dispatch via n8n.
+            Free-form user complaints cause severe duplication, unclear categories, and slow triage. ResolveAI extracts structured JSON with Gemma, runs hybrid duplicate detection, and orchestrates team dispatch via n8n.
           </p>
 
           {/* Quick Interactive Demo Trigger Cards */}
@@ -56,7 +56,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartDemo, onNavigat
           {/* Scope statement from PPT */}
           <div className="pt-2">
             <p className="text-xs text-[var(--foreground-muted)] italic">
-              Users: Students • Maintenance Staff • Facility Admins | Scope: Campus simulation with fictional benchmark data
+              Users: Public Users • Operations Teams • Facility Admins | Scope: Production simulation with benchmark data
             </p>
           </div>
         </div>
@@ -71,7 +71,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartDemo, onNavigat
             </div>
             <h3 className="text-xl font-bold text-[var(--foreground)] mb-2">The Problem</h3>
             <p className="text-[var(--foreground-muted)] leading-relaxed">
-              Campus students submit free-form text with messy descriptions (e.g. "water dripping", "pipe leaking near stairs"). These create duplicate work orders, misassigned departments, and inconsistent triage. Maintenance fixes get slow and untracked.
+              Users submit free-form text with messy descriptions (e.g. "water dripping", "pipe leaking near stairs"). These create duplicate work orders, misassigned departments, and inconsistent triage. Maintenance fixes get slow and untracked.
             </p>
             <ul className="mt-4 space-y-2 text-sm text-[var(--foreground-muted)]">
               <li className="flex items-center space-x-2">
@@ -129,7 +129,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartDemo, onNavigat
             </div>
             <h4 className="text-lg font-bold text-[var(--foreground)] mb-1">Submit</h4>
             <p className="text-sm text-[var(--foreground-muted)]">
-              Student files a natural text complaint via the portal without needing complex dropdowns.
+              User files a natural text complaint via the portal without needing complex dropdowns.
             </p>
           </div>
 

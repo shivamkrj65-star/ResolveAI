@@ -194,7 +194,7 @@ class NotionDocumentationService:
 
         return [
             heading("Project Overview"),
-            paragraph("ResolveAI turns free-form campus maintenance reports into auditable, prioritised work orders for students, facilities teams, and administrators."),
+            paragraph("ResolveAI turns free-form maintenance reports into auditable, prioritised work orders for reporters, facilities teams, and administrators."),
             heading("Technical Architecture & Core Stack"),
             paragraph("Frontend: React + Vite + TypeScript + Tailwind CSS. Backend: FastAPI + Pydantic v2. AI/NLP: Gemma structured extraction. Computer Vision: OpenCV perceptual dHash & Laplacian blur detection. Storage: Cloudinary evidence delivery. Orchestration: n8n automated workflow engine."),
             heading("Empirical Benchmark & Testing Results"),

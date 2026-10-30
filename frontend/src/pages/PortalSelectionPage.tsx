@@ -57,7 +57,7 @@ export const PortalSelectionPage: React.FC<PortalSelectionPageProps> = ({
           </div>
 
           <p className="text-xs text-[var(--foreground-muted)] italic pt-2">
-            Select a specialized portal below to explore the student experience, facility admin triage, or testing & evaluation engine.
+            Select a specialized portal below to explore the user experience, facility admin triage, or testing & evaluation engine.
           </p>
         </div>
       </section>
@@ -67,7 +67,7 @@ export const PortalSelectionPage: React.FC<PortalSelectionPageProps> = ({
         <div className="text-center space-y-1">
           <span className="text-xs font-bold uppercase tracking-wider text-[var(--red-foreground)]">Three-Portals Architecture</span>
           <h2 className="text-2xl md:text-3xl font-extrabold text-[var(--foreground)]">Choose Your Operational Portal</h2>
-          <p className="text-xs text-[var(--foreground-muted)]">Tailored views for campus reporters, facility supervisors, and QA evaluators</p>
+          <p className="text-xs text-[var(--foreground-muted)]">Tailored views for issue reporters, facility supervisors, and QA evaluators</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
@@ -78,7 +78,7 @@ export const PortalSelectionPage: React.FC<PortalSelectionPageProps> = ({
                 <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-[var(--emerald-surface)] text-[var(--emerald-foreground)] border border-[var(--emerald-border)]">
                   Public Access · No Login
                 </span>
-                <span className="text-xs font-semibold text-[var(--foreground-muted)]">Students & Staff</span>
+                <span className="text-xs font-semibold text-[var(--foreground-muted)]">Public & Internal Users</span>
               </div>
 
               <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-red-600 to-rose-500 text-white flex items-center justify-center shadow-md shadow-red-500/20 group-hover:scale-105 transition-transform">
@@ -285,7 +285,7 @@ export const PortalSelectionPage: React.FC<PortalSelectionPageProps> = ({
           </div>
           <h3 className="text-xl font-bold text-[var(--foreground)] mb-2">The Problem</h3>
           <p className="text-[var(--foreground-muted)] leading-relaxed text-sm">
-            Campus students submit free-form text with messy descriptions (e.g. "water dripping", "pipe leaking near stairs"). These create duplicate work orders, misassigned departments, and inconsistent triage. Maintenance fixes get slow and untracked.
+            Users submit free-form text with messy descriptions (e.g. "water dripping", "pipe leaking near stairs"). These create duplicate work orders, misassigned departments, and inconsistent triage. Maintenance fixes get slow and untracked.
           </p>
           <ul className="mt-4 space-y-2 text-xs text-[var(--foreground-muted)]">
             <li className="flex items-center space-x-2">
@@ -342,7 +342,7 @@ export const PortalSelectionPage: React.FC<PortalSelectionPageProps> = ({
             </div>
             <h4 className="text-base font-bold text-[var(--foreground)] mb-1">Submit</h4>
             <p className="text-xs text-[var(--foreground-muted)]">
-              Student files a natural text complaint with optional OpenCV-validated image evidence.
+              User files a natural text complaint with optional OpenCV-validated image evidence.
             </p>
           </div>
 

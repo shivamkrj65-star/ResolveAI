@@ -181,7 +181,7 @@ export const NotionDocsPage: React.FC = () => {
           <div className="space-y-2 border-l-2 border-red-500 pl-4">
             <h4 className="text-sm font-bold text-[var(--foreground)]">1. Project Overview & Problem Statement</h4>
             <p>
-              Free-form campus complaints cause duplicate work orders, category confusion, and delayed resolutions. ResolveAI transforms messy submissions into structured schema-validated JSON with Gemma, runs hybrid duplicate detection (NLP embeddings + location + time + OpenCV perceptual dHash), and routes tickets through automated n8n workflows.
+              Free-form complaints cause duplicate work orders, category confusion, and delayed resolutions. ResolveAI transforms messy submissions into structured schema-validated JSON with Gemma, runs hybrid duplicate detection (NLP embeddings + location + time + OpenCV perceptual dHash), and routes tickets through automated n8n workflows.
             </p>
           </div>
 
@@ -220,7 +220,7 @@ export const NotionDocsPage: React.FC = () => {
           <div className="space-y-2 border-l-2 border-emerald-500 pl-4">
             <h4 className="text-sm font-bold text-[var(--foreground)]">3. Empirical Benchmark & Ablation Study Metrics</h4>
             <p>
-              Evaluated on a held-out dataset of fictional campus complaints with paraphrased duplicates and physical location overlap:
+              Evaluated on a held-out dataset of fictional complaints with paraphrased duplicates and physical location overlap:
             </p>
             <ul className="list-disc ml-4 space-y-1">
               <li><strong>Category Classification Macro-F1:</strong> 92.7% across 8 facility categories.</li>

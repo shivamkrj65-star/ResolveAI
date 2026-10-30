@@ -15,7 +15,7 @@ class GemmaExtractionService:
     
     SYSTEM_PROMPT = """
 You are ResolveAI's Gemma Maintenance Intelligence Parser.
-Extract structured JSON from the student maintenance complaint.
+Extract structured JSON from the maintenance complaint.
 Output strictly JSON matching this schema:
 {
   "issue_type": "water_leak" | "electrical" | "furniture" | "hvac" | "internet_it" | "cleanliness" | "security" | "other",
@@ -48,7 +48,7 @@ Output strictly JSON matching this schema:
         url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
         payload = {
             "contents": [
-                {"role": "user", "parts": [{"text": f"{cls.SYSTEM_PROMPT}\n\nStudent Complaint: \"{raw_text}\""}]}
+                {"role": "user", "parts": [{"text": f"{cls.SYSTEM_PROMPT}\n\nUser Complaint: \"{raw_text}\""}]}
             ],
             "generationConfig": {
                 "temperature": 0.1,

@@ -31,8 +31,8 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ cases, onRefresh, 
 
   const [selectedCaseForReview, setSelectedCaseForReview] = useState<CaseRecord | null>(null);
   const [reviewDecision, setReviewDecision] = useState<'approve' | 'merge_duplicate' | 'reject'>('approve');
-  const [reviewerNotes, setReviewerNotes] = useState('Reviewed by Campus Facility Supervisor');
-  const [targetTeam, setTargetTeam] = useState('Campus Plumbing & Water Infrastructure Team');
+  const [reviewerNotes, setReviewerNotes] = useState('Reviewed by Facility Supervisor');
+  const [targetTeam, setTargetTeam] = useState('Plumbing & Water Infrastructure Team');
   const [reviewLoading, setReviewLoading] = useState(false);
 
   const filteredCases = cases.filter(c => {
@@ -444,11 +444,11 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ cases, onRefresh, 
                   onChange={(e) => setTargetTeam(e.target.value)}
                   className="w-full px-3 py-2 rounded-xl border border-[var(--border)] text-xs bg-[var(--surface)] text-[var(--foreground)]"
                 >
-                  <option value="Campus Plumbing & Water Infrastructure Team">Campus Plumbing & Water Infrastructure Team</option>
+                  <option value="Plumbing & Water Infrastructure Team">Plumbing & Water Infrastructure Team</option>
                   <option value="High & Low Voltage Electrical Operations">High & Low Voltage Electrical Operations</option>
                   <option value="Carpentry & Facilities Maintenance Unit">Carpentry & Facilities Maintenance Unit</option>
                   <option value="HVAC & Thermal Systems Engineering">HVAC & Thermal Systems Engineering</option>
-                  <option value="Campus IT & Network Operations Center (NOC)">Campus IT & Network Operations Center (NOC)</option>
+                  <option value="IT & Network Operations Center (NOC)">IT & Network Operations Center (NOC)</option>
                   <option value="Sanitation & Groundskeeping Services">Sanitation & Groundskeeping Services</option>
                 </select>
               </div>
