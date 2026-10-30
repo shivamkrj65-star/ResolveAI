@@ -29,7 +29,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartDemo, onNavigat
         <div className="relative max-w-4xl mx-auto text-center space-y-6">
           <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-red-950/80 border border-red-700/60 text-red-300 text-xs font-semibold uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5 text-red-400" />
-            <span>Built for n8n Primary Track • HackShift_404</span>
+            <span>Built for n8n Primary Track</span>
           </div>
 
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
@@ -226,7 +226,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartDemo, onNavigat
       <footer className="border-t border-[var(--border)] pt-8 pb-12 max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[var(--foreground-muted)]">
           <div>
-            <p className="font-semibold text-[var(--foreground)]">ResolveAI • HackShift_404</p>
+            <p className="font-semibold text-[var(--foreground)]">ResolveAI</p>
             <p>Anshul Gupta (Team Leader) • Aditya Gupta • Shivam Jhingan</p>
           </div>
           <div className="flex items-center space-x-4">

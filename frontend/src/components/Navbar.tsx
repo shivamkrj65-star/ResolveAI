@@ -61,7 +61,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 {currentPortal === 'user' && 'User Portal • Public Access'}
                 {currentPortal === 'admin' && 'Admin Portal • Maintenance Triage'}
                 {currentPortal === 'testing' && 'Testing Portal • Workflows & Evaluation'}
-                {currentPortal === 'selection' && 'Intelligent Campus Maintenance • HackShift_404'}
+                {currentPortal === 'selection' && 'Intelligent Campus Maintenance'}
               </span>
             </span>
           </button>

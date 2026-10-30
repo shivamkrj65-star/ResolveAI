@@ -428,7 +428,7 @@ export const PortalSelectionPage: React.FC<PortalSelectionPageProps> = ({
       <footer className="border-t border-[var(--border)] pt-8 pb-12">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[var(--foreground-muted)]">
           <div>
-            <p className="font-semibold text-[var(--foreground)]">ResolveAI • HackShift_404</p>
+            <p className="font-semibold text-[var(--foreground)]">ResolveAI</p>
             <p className="text-xs">Anshul Gupta (Team Leader) • Aditya Gupta • Shivam Jhingan</p>
           </div>
           <div className="flex items-center space-x-4">
