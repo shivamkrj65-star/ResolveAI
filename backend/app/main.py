@@ -24,9 +24,7 @@ app.include_router(router, prefix=settings.API_V1_STR)
 def root():
     return {
         "project": "ResolveAI",
-        "tagline": "Intelligent Campus Maintenance Resolution",
-        "team": "HackShift_404 (Anshul Gupta, Aditya Gupta, Shivam Jhingan)",
-        "track": "n8n (Primary Sponsored Track)",
+        "tagline": "AI-Powered Complaint Management Platform",
         "docs_url": "/docs",
         "status": "online"
     }

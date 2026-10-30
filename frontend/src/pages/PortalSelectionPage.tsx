@@ -39,20 +39,24 @@ export const PortalSelectionPage: React.FC<PortalSelectionPageProps> = ({
         <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 rounded-full bg-rose-600/10 blur-3xl pointer-events-none" />
 
         <div className="relative max-w-4xl mx-auto text-center space-y-6">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-red-950/80 border border-red-700/60 text-red-300 text-xs font-semibold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5 text-red-400" />
-            <span>Built for n8n Primary Track</span>
-          </div>
-
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
             Resolve<span className="text-red-500">AI</span> Role-Based Portals
           </h1>
 
-          <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Intelligent campus maintenance resolution with Gemma NLP, OpenCV image analysis, Cloudinary evidence delivery, n8n automated routing, and Notion workspace synchronization.
+          <p className="text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Traditional complaint management systems suffer from manual processing, duplicate complaints, delayed resolutions, and poor transparency, leading to inefficiency across organizations, institutions, and public services.
           </p>
 
-          <p className="text-xs text-[var(--foreground-muted)] italic">
+          <div className="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 text-left max-w-3xl mx-auto shadow-inner">
+            <span className="inline-block text-xs font-bold uppercase tracking-wider text-red-400 mb-1.5">
+              Proposed Solution
+            </span>
+            <p className="text-sm md:text-base text-slate-200 leading-relaxed">
+              <strong>ResolveAI</strong> is an AI-powered complaint management platform that uses Gemma AI, NLP, and Computer Vision to automatically categorize complaints, detect duplicates, assess urgency, and prioritize issues. It integrates n8n for workflow automation, Cloudinary for image management, and Notion for documentation, enabling faster, smarter, and more transparent complaint resolution.
+            </p>
+          </div>
+
+          <p className="text-xs text-[var(--foreground-muted)] italic pt-2">
             Select a specialized portal below to explore the student experience, facility admin triage, or testing & evaluation engine.
           </p>
         </div>

@@ -27,11 +27,6 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartDemo, onNavigat
         <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 rounded-full bg-rose-600/10 blur-3xl pointer-events-none" />
 
         <div className="relative max-w-4xl mx-auto text-center space-y-6">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-red-950/80 border border-red-700/60 text-red-300 text-xs font-semibold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5 text-red-400" />
-            <span>Built for n8n Primary Track</span>
-          </div>
-
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
             Turns Unstructured Complaints into <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-rose-300">Auditable Assignments</span>
           </h1>
