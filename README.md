@@ -190,7 +190,7 @@ Deploy the FastAPI backend separately (e.g. on Google Cloud Run, Render, or Rail
 
 ## 6. Live Presentation & Evaluation Workflow
 
-1. **Portal Selection**: Visit `[http://127.0.0.1:3000](http://127.0.0.1:3000)`. Explore the three dedicated options (User, Admin, Testing).
+1. **Portal Selection**: Visit https://resolve-ai-ashen-theta.vercel.app/. Explore the three dedicated options (User, Admin, Testing).
 2. **User Portal (Public)**:
 * Click **"Test Case 1: Unique Issue"** → Submit. Note Gemma classification and n8n direct assignment.
 * Attach a sample photo. Note OpenCV image decoding, sharpness metrics, and Cloudinary upload.
@@ -214,3 +214,5 @@ Deploy the FastAPI backend separately (e.g. on Google Cloud Run, Render, or Rail
 5. **Session Persistence & Role Isolation**:
 * Refresh the browser: active sessions persist via HTTP-only cookies.
 * Try navigating to Admin features with a Tester session: access is strictly blocked (403 Forbidden).
+
+Deployed Link :- https://resolve-ai-ashen-theta.vercel.app/
