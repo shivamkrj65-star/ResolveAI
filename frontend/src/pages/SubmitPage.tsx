@@ -75,13 +75,13 @@ export const SubmitPage: React.FC<SubmitPageProps> = ({ onCaseCreated, initialTe
 
   const sampleComplaints = [
     {
-      title: "Slide 4 Case 1: Unique Complaint",
+      title: "Test Case 1: Unique Complaint",
       text: "Water across B-block stairway, puddles forming near the second landing and students are slipping.",
       block: "Block B",
       floor: "2nd Floor"
     },
     {
-      title: "Slide 4 Case 2: Paraphrased Duplicate Candidate",
+      title: "Test Case 2: Paraphrased Duplicate Candidate",
       text: "Leaking pipe near the stairs in block B causing water to pool on the walking path.",
       block: "Block B",
       floor: "2nd Floor"

@@ -194,7 +194,7 @@ export const PortalSelectionPage: React.FC<PortalSelectionPageProps> = ({
                   <Lock className="w-3 h-3 text-red-400" />
                   <span>Protected · Tester Role</span>
                 </span>
-                <span className="text-xs font-semibold text-[var(--foreground-muted)]">QA & Hackathon Evaluators</span>
+                <span className="text-xs font-semibold text-[var(--foreground-muted)]">QA & Testing Evaluators</span>
               </div>
 
               <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-slate-900 to-slate-800 text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
@@ -254,9 +254,9 @@ export const PortalSelectionPage: React.FC<PortalSelectionPageProps> = ({
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
             <span className="text-xs font-bold uppercase tracking-wider text-[var(--foreground-muted)]">
-              Interactive Hackathon Demo Scenarios
+              Demo for Testing
             </span>
-            <p className="text-xs text-[var(--foreground-muted)]">Populate and run Slide 4 test cases in the User Portal with 1 click</p>
+            <p className="text-xs text-[var(--foreground-muted)]">Run demo with inbuilt test cases</p>
           </div>
           <div className="flex items-center gap-3">
             <button

@@ -217,7 +217,7 @@ export function App() {
   };
 
   const handleResetDemo = async () => {
-    if (window.confirm("Reset all cases back to initial benchmark state for clean hackathon demo?")) {
+    if (window.confirm("Reset all cases back to initial benchmark state for clean demo testing?")) {
       try {
         await apiService.resetDemo();
         if (session) {

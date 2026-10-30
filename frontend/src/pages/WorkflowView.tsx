@@ -37,7 +37,7 @@ export const WorkflowView: React.FC<WorkflowViewProps> = ({ cases }) => {
           </div>
           <h1 className="text-3xl font-extrabold text-[var(--foreground)]">Automation & Workflow Architecture</h1>
           <p className="text-sm text-[var(--foreground-muted)]">
-            Slide 4 Implementation: Webhook Ingestion, Idempotency Checks, Conditional Branching, & Execution History
+            End-to-End Implementation: Webhook Ingestion, Idempotency Checks, Conditional Branching, & Execution History
           </p>
         </div>
 
@@ -72,7 +72,7 @@ export const WorkflowView: React.FC<WorkflowViewProps> = ({ cases }) => {
 
       {activeTab === 'diagram' && (
         <div className="space-y-6">
-          {/* Interactive visual workflow diagram (Slide 4 recreation) */}
+          {/* Interactive visual workflow diagram  */}
           <div className="theme-inverse bg-slate-950 rounded-3xl p-8 border border-slate-800 text-white shadow-2xl relative overflow-hidden">
             <div className="text-center max-w-2xl mx-auto mb-10">
               <span className="text-xs font-mono text-red-400 tracking-wider uppercase">n8n Execution Topology</span>
