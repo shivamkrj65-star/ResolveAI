@@ -233,7 +233,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartDemo, onNavigat
             <span className="px-3 py-1 rounded-full bg-[var(--surface-muted)] font-medium text-[var(--foreground)] border border-[var(--border)]">
               Track: n8n (Primary Sponsored Track)
             </span>
-            <span className="text-xs text-[var(--foreground-muted)]">Reforged '26 • BPIT</span>
+            <span className="text-xs text-[var(--foreground-muted)]">BPIT</span>
           </div>
         </div>
       </footer>

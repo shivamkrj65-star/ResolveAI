@@ -41,7 +41,7 @@ export const PortalSelectionPage: React.FC<PortalSelectionPageProps> = ({
         <div className="relative max-w-4xl mx-auto text-center space-y-6">
           <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-red-950/80 border border-red-700/60 text-red-300 text-xs font-semibold uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5 text-red-400" />
-            <span>Built for n8n Primary Track • Reforged '26</span>
+            <span>Built for n8n Primary Track</span>
           </div>
 
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
@@ -435,7 +435,7 @@ export const PortalSelectionPage: React.FC<PortalSelectionPageProps> = ({
             <span className="px-3 py-1 rounded-full bg-[var(--surface-muted)] font-medium text-[var(--foreground)] border border-[var(--border)] text-xs">
               Track: n8n (Primary Sponsored Track)
             </span>
-            <span className="text-xs text-[var(--foreground-muted)]">Reforged '26 • BPIT</span>
+            <span className="text-xs text-[var(--foreground-muted)]">BPIT</span>
           </div>
         </div>
       </footer>

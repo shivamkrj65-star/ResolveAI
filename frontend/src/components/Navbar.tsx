@@ -56,9 +56,6 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <span className="text-xl font-bold tracking-tight text-[var(--foreground)]">
                   RESOLVE<span className="text-[var(--primary)]">AI</span>
                 </span>
-                <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-red-100 text-red-800 border border-red-200">
-                  Reforged '26
-                </span>
               </span>
               <span className="text-[10px] text-[var(--foreground-muted)] font-medium hidden sm:block">
                 {currentPortal === 'user' && 'User Portal • Public Access'}
