@@ -523,6 +523,8 @@ def update_case_status(
         raise HTTPException(status_code=404, detail="Case not found")
     now_iso = _now()
     case.status = update.status
+    if update.status != CaseStatus.HELD_FOR_REVIEW:
+        case.is_held_as_duplicate = False
     case.last_updated_at = now_iso
     note = f" Note: {update.note}" if update.note else ""
     case.history.append({"timestamp": now_iso, "event": f"Admin updated status to {update.status.value}.{note}"})

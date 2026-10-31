@@ -31,7 +31,8 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ cases, onRefresh, 
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   const [selectedCaseForReview, setSelectedCaseForReview] = useState<CaseRecord | null>(null);
-  const [reviewDecision, setReviewDecision] = useState<'approve' | 'merge_duplicate' | 'reject'>('approve');
+  const [reviewDecision, setReviewDecision] = useState<'status' | 'approve' | 'merge_duplicate' | 'reject'>('approve');
+  const [newStatus, setNewStatus] = useState<CaseStatus>('assigned');
   const [reviewerNotes, setReviewerNotes] = useState('Reviewed by Facility Supervisor');
   const [targetTeam, setTargetTeam] = useState('Plumbing & Water Infrastructure Team');
   const [reviewLoading, setReviewLoading] = useState(false);
@@ -67,7 +68,9 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ cases, onRefresh, 
     if (!selectedCaseForReview) return;
     setReviewLoading(true);
     try {
-      await apiService.makeCaseDecision(selectedCaseForReview.id, {
+      if (reviewDecision === 'status') {
+        await apiService.updateCaseStatus(selectedCaseForReview.id, newStatus, reviewerNotes);
+      } else await apiService.makeCaseDecision(selectedCaseForReview.id, {
         decision: reviewDecision,
         reviewer_notes: reviewerNotes,
         target_team: reviewDecision === 'approve' ? targetTeam : undefined,
@@ -318,14 +321,12 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ cases, onRefresh, 
 
                     <td className="px-4 py-4 text-right whitespace-nowrap">
                       <div className="flex items-center justify-end space-x-2">
-                        {c.status === 'held_for_review' && (
                           <button
-                            onClick={() => setSelectedCaseForReview(c)}
+                            onClick={() => { setSelectedCaseForReview(c); setTargetTeam(c.assigned_team || 'General Operations Helpdesk'); setNewStatus(c.status); setReviewDecision('status'); setReviewerNotes(''); }}
                             className="px-2.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-white font-semibold text-xs shadow-sm transition-all"
                           >
-                            Review
+                            Manage
                           </button>
-                        )}
                         <button
                           onClick={() => onSelectCase(c)}
                           className="p-1.5 rounded-lg border border-[var(--border)] hover:bg-[var(--surface-muted)] text-[var(--foreground-muted)] transition-all"
@@ -353,7 +354,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ cases, onRefresh, 
                   Human-in-the-Loop Approval Required
                 </span>
                 <h3 className="text-xl font-bold text-[var(--foreground)] mt-1">
-                  Review Case {selectedCaseForReview.case_number}
+                  Manage Case {selectedCaseForReview.case_number}
                 </h3>
               </div>
               <button 
@@ -390,6 +391,12 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ cases, onRefresh, 
             )}
 
             {/* Decision choices */}
+            <button type="button" onClick={() => setReviewDecision('status')} aria-pressed={reviewDecision === 'status'} className={`rounded-lg border p-3 ${reviewDecision === 'status' ? 'border-emerald-600 bg-[var(--emerald-surface)] text-[var(--emerald-foreground)] font-bold' : 'border-[var(--border)]'}`}>Update status / acknowledge</button>
+            {reviewDecision === 'status' && <label className="block">New status
+              <select aria-label="New status" value={newStatus} onChange={event => setNewStatus(event.target.value as CaseStatus)} className="w-full rounded-lg border border-[var(--border)] bg-[var(--surface)] text-[var(--foreground)] p-3">
+                <option value="submitted">Received</option><option value="held_for_review">Under review</option><option value="assigned">Assigned</option><option value="in_progress">In progress</option><option value="resolved">Resolved</option><option value="rejected">Rejected</option>
+              </select>
+            </label>}
             <div className="space-y-3">
               <label className="text-xs font-bold text-[var(--foreground)] uppercase tracking-wider block">
                 Select Administrative Action
@@ -405,12 +412,13 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ cases, onRefresh, 
                   }`}
                 >
                   <Check className="w-4 h-4 mx-auto mb-1 text-emerald-600" />
-                  <span className="text-xs">Approve & Dispatch</span>
+                  <span className="text-xs">Approve & Reassign</span>
                 </button>
 
                 <button
                   type="button"
                   onClick={() => setReviewDecision('merge_duplicate')}
+                  disabled={!selectedCaseForReview.duplicate_candidates?.length}
                   className={`p-3 rounded-xl border text-center transition-all ${
                     reviewDecision === 'merge_duplicate'
                       ? 'border-amber-600 bg-[var(--amber-surface)] text-[var(--amber-foreground)] font-bold'
@@ -441,10 +449,14 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ cases, onRefresh, 
               <div className="space-y-1.5">
                 <label className="text-xs font-semibold text-[var(--foreground)]">Assign Maintenance Team</label>
                 <select
+                  aria-label="Assign Maintenance Team"
                   value={targetTeam}
                   onChange={(e) => setTargetTeam(e.target.value)}
                   className="w-full px-3 py-2 rounded-xl border border-[var(--border)] text-xs bg-[var(--surface)] text-[var(--foreground)]"
                 >
+                  {selectedCaseForReview.assigned_team && <option value={selectedCaseForReview.assigned_team}>{selectedCaseForReview.assigned_team} (current)</option>}
+                  <option value="General Operations Helpdesk">General Operations Helpdesk</option>
+                  <option value="Security & Safety Response Team">Security & Safety Response Team</option>
                   <option value="Plumbing & Water Infrastructure Team">Plumbing & Water Infrastructure Team</option>
                   <option value="High & Low Voltage Electrical Operations">High & Low Voltage Electrical Operations</option>
                   <option value="Carpentry & Facilities Maintenance Unit">Carpentry & Facilities Maintenance Unit</option>
@@ -464,6 +476,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ cases, onRefresh, 
                 onChange={(e) => setReviewerNotes(e.target.value)}
                 className="w-full px-3 py-2 rounded-xl border border-[var(--border)] text-xs text-[var(--foreground)]"
               />
+              <p className="text-xs text-[var(--muted-foreground)]">These notes are visible to the reporter in their ticket history.</p>
             </div>
 
             {/* Actions */}

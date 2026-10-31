@@ -28,6 +28,25 @@ export const TrackComplaintPage: React.FC<TrackComplaintPageProps> = ({ initialT
   const [error, setError] = useState<string | null>(null);
   const [trackedCase, setTrackedCase] = useState<CaseRecord | null>(null);
   const [recentTickets, setRecentTickets] = useState<string[]>([]);
+  const [refreshFailed, setRefreshFailed] = useState(false);
+  const trackedId = trackedCase?.id;
+  useEffect(() => {
+    if (!trackedId) return;
+    let active = true;
+    let busy = false;
+    const refresh = async () => {
+      if (busy || document.hidden) return;
+      busy = true;
+      try {
+        const updated = await apiService.trackComplaint(trackedId);
+        if (active) { setTrackedCase(current => current?.id === trackedId ? updated : current); setRefreshFailed(false); }
+      } catch { if (active) setRefreshFailed(true); }
+      finally { busy = false; }
+    };
+    const timer = window.setInterval(refresh, 5000);
+    document.addEventListener('visibilitychange', refresh);
+    return () => { active = false; window.clearInterval(timer); document.removeEventListener('visibilitychange', refresh); };
+  }, [trackedId]);
 
   useEffect(() => {
     try {
@@ -211,6 +230,11 @@ export const TrackComplaintPage: React.FC<TrackComplaintPageProps> = ({ initialT
           </div>
 
           {/* Metadata Grid */}
+          <div className="rounded-xl border border-[var(--border)] p-4 text-sm space-y-1">
+            <p role="status">{refreshFailed ? 'Connection interrupted — retrying automatically.' : 'Updates automatically every 5 seconds.'}</p>
+            <p>Last update: {new Date(trackedCase.last_updated_at || trackedCase.created_at).toLocaleString()}</p>
+            <p>{trackedCase.history.some(event => event.event.startsWith('Admin ')) ? 'Acknowledged by the maintenance administrator. See the activity history below.' : 'Awaiting administrator acknowledgement.'}</p>
+          </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
             <div className="p-3.5 rounded-xl bg-[var(--surface-muted)] border border-[var(--border)]">
               <span className="text-[var(--foreground-muted)] block font-medium">Assigned Team</span>
