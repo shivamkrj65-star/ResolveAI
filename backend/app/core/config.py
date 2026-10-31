@@ -68,10 +68,10 @@ class Settings(BaseModel):
     BLUR_VARIANCE_THRESHOLD: float = float(os.getenv("BLUR_VARIANCE_THRESHOLD", "18"))
     SUBMISSION_RATE_LIMIT_PER_MINUTE: int = int(os.getenv("SUBMISSION_RATE_LIMIT_PER_MINUTE", "20"))
 
-    # Cloudinary credentials with auto-sanitization and robust fallback
-    CLOUDINARY_CLOUD_NAME: str = Field(default_factory=lambda: _clean_str(os.getenv("CLOUDINARY_CLOUD_NAME"), "ogy9ruhm"))
-    CLOUDINARY_API_KEY: str = Field(default_factory=lambda: _clean_str(os.getenv("CLOUDINARY_API_KEY"), "195653766721855"))
-    CLOUDINARY_API_SECRET: str = Field(default_factory=lambda: _clean_str(os.getenv("CLOUDINARY_API_SECRET"), "sIJubjyA5Lt_ecpHjT0Y91NSEI0"))
+    # Cloudinary credentials are supplied only by the deployment environment.
+    CLOUDINARY_CLOUD_NAME: str = Field(default_factory=lambda: _clean_str(os.getenv("CLOUDINARY_CLOUD_NAME")))
+    CLOUDINARY_API_KEY: str = Field(default_factory=lambda: _clean_str(os.getenv("CLOUDINARY_API_KEY")))
+    CLOUDINARY_API_SECRET: str = Field(default_factory=lambda: _clean_str(os.getenv("CLOUDINARY_API_SECRET")))
     CLOUDINARY_URL: str = Field(default_factory=lambda: _clean_str(os.getenv("CLOUDINARY_URL"), ""))
     CLOUDINARY_FOLDER_PREFIX: str = Field(default_factory=lambda: _clean_str(os.getenv("CLOUDINARY_FOLDER_PREFIX"), "resolveai-evidence"))
 
@@ -97,5 +97,9 @@ class Settings(BaseModel):
     SESSION_SECRET: str = os.getenv("SESSION_SECRET", "resolveai-demo-secret-key-2026")
     COOKIE_SECURE: bool = _env_bool("COOKIE_SECURE", os.getenv("ENVIRONMENT", "development") == "production")
 
+
+# Normalize dashboard-added quotes before the SDK reads its environment at import.
+if "CLOUDINARY_URL" in os.environ:
+    os.environ["CLOUDINARY_URL"] = _clean_str(os.environ["CLOUDINARY_URL"])
 
 settings = Settings()

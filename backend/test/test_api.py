@@ -252,6 +252,19 @@ def test_multipart_image_submission_uses_processed_evidence(monkeypatch):
     assert created["images"][0]["visual_analysis"]["sharpness"] > 0
     assert created["priority_score"] >= created["extraction"]["estimated_priority_score"]
 
+    tracked = client.get(f"/api/v1/cases/track/{created['case_number']}")
+    assert tracked.status_code == 200
+    assert tracked.json()["images"] == created["images"]
+    admin = TestClient(app)
+    login = admin.post("/api/v1/auth/login", json={
+        "username": settings.ADMIN_USERNAME, "password": settings.ADMIN_PASSWORD,
+    })
+    assert login.status_code == 200
+    listing = admin.get("/api/v1/cases")
+    assert listing.status_code == 200
+    listed = next(case for case in listing.json() if case["id"] == created["id"])
+    assert listed["images"] == created["images"]
+
 
 def test_notion_sync_without_credentials_raises_graceful_error(monkeypatch):
     """When Notion credentials are not configured, sync fails gracefully with clear error without crashing."""

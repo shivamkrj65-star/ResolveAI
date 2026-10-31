@@ -1,3 +1,4 @@
+import { EvidenceImage } from '../components/EvidenceImage';
 import React, { useState } from 'react';
 import { 
   Search, 
@@ -260,7 +261,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ cases, onRefresh, 
 
                     <td className="px-4 py-4 max-w-xs">
                       <div className="flex gap-2.5">
-                        {c.images[0] && <img src={c.images[0].thumbnail_url} alt="Issue evidence" className="h-10 w-12 rounded-lg object-cover border border-[var(--border)] shrink-0" />}
+                        {c.images[0] && <EvidenceImage image={c.images[0]} alt="Issue evidence" className="h-10 w-12 rounded-lg object-cover border border-[var(--border)] shrink-0" />}
                         <div className="min-w-0">
                           <p className="text-[var(--foreground)] font-medium line-clamp-2">{c.raw_complaint}</p>
                           <p className="text-[11px] text-[var(--foreground-muted)] mt-0.5">By {c.student_name} · {c.images.length} image{c.images.length === 1 ? '' : 's'}</p>

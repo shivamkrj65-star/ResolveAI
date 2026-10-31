@@ -1,3 +1,4 @@
+import { EvidenceImage } from '../components/EvidenceImage';
 import React, { useState, useEffect } from 'react';
 import { 
   Search, 
@@ -276,7 +277,7 @@ export const TrackComplaintPage: React.FC<TrackComplaintPageProps> = ({ initialT
                 {trackedCase.images.map((image) => (
                   <div key={image.id} className="rounded-xl overflow-hidden border border-[var(--border)] bg-[var(--surface)]">
                     <a href={image.secure_url} target="_blank" rel="noreferrer" className="block relative group">
-                      <img src={image.thumbnail_url} alt={image.original_filename} className="h-28 w-full object-cover group-hover:opacity-90 transition-opacity" />
+                      <EvidenceImage image={image} alt={image.original_filename} className="h-28 w-full object-cover group-hover:opacity-90 transition-opacity" />
                       <div className="absolute top-1.5 right-1.5 bg-slate-900/80 text-[10px] text-white px-1.5 py-0.5 rounded font-mono">
                         {image.width}×{image.height}
                       </div>
