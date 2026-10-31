@@ -204,6 +204,7 @@ export function App() {
   };
 
   const handleCaseCreated = (createdCase: CaseRecord) => {
+    setCases((prev) => [createdCase, ...prev.filter((c) => c.id !== createdCase.id)]);
     if (session?.role === 'admin') {
       fetchCasesForRole(session);
     }
