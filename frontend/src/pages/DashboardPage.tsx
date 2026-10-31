@@ -1,5 +1,5 @@
 import { EvidenceImage } from '../components/EvidenceImage';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Search, 
   AlertCircle, 
@@ -20,9 +20,11 @@ interface DashboardPageProps {
   cases: CaseRecord[];
   onRefresh: () => void;
   onSelectCase: (caseRecord: CaseRecord) => void;
+  selectedCaseForReview: CaseRecord | null;
+  setSelectedCaseForReview: (caseRecord: CaseRecord | null) => void;
 }
 
-export const DashboardPage: React.FC<DashboardPageProps> = ({ cases, onRefresh, onSelectCase }) => {
+export const DashboardPage: React.FC<DashboardPageProps> = ({ cases, onRefresh, onSelectCase, selectedCaseForReview, setSelectedCaseForReview }) => {
   const [statusFilter, setStatusFilter] = useState<string>('all');
   const [categoryFilter, setCategoryFilter] = useState<string>('all');
   const [priorityFilter, setPriorityFilter] = useState<string>('all');
@@ -30,12 +32,19 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ cases, onRefresh, 
   const [sortMode, setSortMode] = useState<'priority' | 'most_reported' | 'recent'>('priority');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
-  const [selectedCaseForReview, setSelectedCaseForReview] = useState<CaseRecord | null>(null);
   const [reviewDecision, setReviewDecision] = useState<'status' | 'approve' | 'merge_duplicate' | 'reject'>('approve');
   const [newStatus, setNewStatus] = useState<CaseStatus>('assigned');
   const [reviewerNotes, setReviewerNotes] = useState('Reviewed by Facility Supervisor');
   const [targetTeam, setTargetTeam] = useState('Plumbing & Water Infrastructure Team');
   const [reviewLoading, setReviewLoading] = useState(false);
+
+  useEffect(() => {
+    if (!selectedCaseForReview) return;
+    setTargetTeam(selectedCaseForReview.assigned_team || 'General Operations Helpdesk');
+    setNewStatus(selectedCaseForReview.status);
+    setReviewDecision('status');
+    setReviewerNotes('');
+  }, [selectedCaseForReview]);
 
   const filteredCases = cases.filter(c => {
     if (statusFilter !== 'all' && c.status !== statusFilter) return false;
@@ -322,7 +331,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ cases, onRefresh, 
                     <td className="px-4 py-4 text-right whitespace-nowrap">
                       <div className="flex items-center justify-end space-x-2">
                           <button
-                            onClick={() => { setSelectedCaseForReview(c); setTargetTeam(c.assigned_team || 'General Operations Helpdesk'); setNewStatus(c.status); setReviewDecision('status'); setReviewerNotes(''); }}
+                            onClick={() => setSelectedCaseForReview(c)}
                             className="px-2.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-white font-semibold text-xs shadow-sm transition-all"
                           >
                             Manage

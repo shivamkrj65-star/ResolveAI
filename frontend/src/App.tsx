@@ -28,6 +28,7 @@ export function App() {
 
   const [cases, setCases] = useState<CaseRecord[]>([]);
   const [selectedCaseDetail, setSelectedCaseDetail] = useState<CaseRecord | null>(null);
+  const [selectedCaseForReview, setSelectedCaseForReview] = useState<CaseRecord | null>(null);
   const [initialSubmitText, setInitialSubmitText] = useState<string>('');
 
   // Synchronize URL query params
@@ -295,6 +296,8 @@ export function App() {
                 cases={cases} 
                 onRefresh={() => fetchCasesForRole(session)} 
                 onSelectCase={(c) => setSelectedCaseDetail(c)} 
+                selectedCaseForReview={selectedCaseForReview}
+                setSelectedCaseForReview={setSelectedCaseForReview}
               />
             )}
           </PageBoundary>
@@ -449,7 +452,18 @@ export function App() {
             </div>
 
             {/* Footer */}
-            <div className="flex justify-end pt-2 border-t border-[var(--border)]">
+            <div className="sticky bottom-0 flex flex-wrap justify-end gap-3 py-3 border-t border-[var(--border)] bg-[var(--surface)]">
+              {currentPortal === 'admin' && session?.role === 'admin' && (
+                <button
+                  onClick={() => {
+                    setSelectedCaseForReview(selectedCaseDetail);
+                    setSelectedCaseDetail(null);
+                  }}
+                  className="px-4 py-2 rounded-xl bg-red-600 text-white text-sm font-semibold hover:bg-red-700"
+                >
+                  Acknowledge / Assign Team / Update Status
+                </button>
+              )}
               <button
                 onClick={() => setSelectedCaseDetail(null)}
                 className="px-4 py-2 rounded-xl bg-slate-900 text-white text-xs font-semibold hover:bg-slate-800"
